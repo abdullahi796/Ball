@@ -14,9 +14,10 @@ Public Class Form1
     Dim pic1 As Boolean = False
     Dim pic2 As Boolean = False
     Dim pic3 As Boolean = False
+    Dim levelEditor As Boolean = False
 
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
-        If e.KeyValue = Keys.Space Then
+        If e.KeyValue = Keys.Space And levelEditor = False Then
             If player.key = "space" Then
                 player.key = ""
             Else
@@ -34,6 +35,11 @@ Public Class Form1
         End If
         If e.KeyValue = Keys.F Then
             key = "4"
+        End If
+        If e.KeyValue = Keys.P And levelEditor = False Then
+            levelEditor = True
+        ElseIf e.KeyValue = Keys.P And levelEditor = True Then
+            levelEditor = False
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -104,8 +110,15 @@ Public Class Form1
 
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
+        If levelEditor = True Then
+            player.ball.Visible = False
+        Else
+            player.ball.Visible = True
+        End If
+        Me.lblEditor.Text = levelEditor
         Panel1.Width = Me.Width
         Panel1.Height = Me.Height
+
         Me.BackColor = Color.FromArgb(31, 218, 175)
         For i = 0 To 9
             For c = 0 To 9
@@ -146,8 +159,8 @@ Public Class Form1
         Public Sub New(ByVal tempX As Integer, ByVal tempY As Integer, ByVal tempImg As String)
             x = tempX * 60
             y = tempY * 60
-            x += 370
-            y += 55
+            x += (Form1.Width / 2) - 20
+            y += (Form1.Height / 4) + 5
             img = tempImg
             locX = tempX
             locY = tempY
@@ -165,7 +178,7 @@ Public Class Form1
             Debug.Print(lastTile)
         End Sub
         Public Sub move()
-            If key = "space" Then
+            If key = "space" And Form1.levelEditor = False Then
                 ball.Top = y - 5
                 ball.Left = x + 3
                 If down = "arrowDown.png" And locY + 1 < 9 Then

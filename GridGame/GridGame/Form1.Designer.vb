@@ -31,6 +31,8 @@ Partial Class Form1
         Me.tmrUI = New System.Windows.Forms.Timer(Me.components)
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblEditor = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'tmrLoop
@@ -83,12 +85,33 @@ Partial Class Form1
         Me.Label2.TabIndex = 2
         Me.Label2.Visible = False
         '
+        'lblEditor
+        '
+        Me.lblEditor.AutoSize = True
+        Me.lblEditor.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEditor.ForeColor = System.Drawing.Color.White
+        Me.lblEditor.Location = New System.Drawing.Point(13, 12)
+        Me.lblEditor.Name = "lblEditor"
+        Me.lblEditor.Size = New System.Drawing.Size(0, 25)
+        Me.lblEditor.TabIndex = 4
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BackColor = System.Drawing.Color.Honeydew
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox1.Location = New System.Drawing.Point(13, 616)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox1.TabIndex = 5
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Aquamarine
         Me.ClientSize = New System.Drawing.Size(724, 648)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.lblEditor)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -97,6 +120,7 @@ Partial Class Form1
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Form1"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents tmrLoop As System.Windows.Forms.Timer
@@ -106,5 +130,7 @@ Partial Class Form1
     Friend WithEvents tmrUI As System.Windows.Forms.Timer
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lblEditor As System.Windows.Forms.Label
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
 
 End Class
