@@ -110,10 +110,21 @@ Public Class Form1
 
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
+        Me.TextBox1.Top = Me.Height - 100
+        Me.Label4.Top = Me.Height - 100
+        Me.lblEdit.Top = Me.Height - 150
+        If Label4.Bounds.Contains(PointToClient(MousePosition)) Then
+            Me.TextBox1.Enabled = True
+        Else
+            Me.TextBox1.Enabled = False
+        End If
         If levelEditor = True Then
             player.ball.Visible = False
         Else
             player.ball.Visible = True
+        End If
+        If lblEdit.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
+            saveLevel()
         End If
         Me.lblEditor.Text = levelEditor
         Panel1.Width = Me.Width
@@ -136,6 +147,13 @@ Public Class Form1
     End Sub
 
     Public Sub restart()
+
+    End Sub
+    Public Sub saveLevel()
+        Dim file As System.IO.StreamWriter
+        file = My.Computer.FileSystem.OpenTextFileWriter(Me.TextBox1.Text & ".txt", False)
+        file.WriteLine("Here ig.")
+            file.Close()
     End Sub
 
     Public Class Ball

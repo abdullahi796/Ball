@@ -33,6 +33,8 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblEditor = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblEdit = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'tmrLoop
@@ -99,10 +101,31 @@ Partial Class Form1
         '
         Me.TextBox1.BackColor = System.Drawing.Color.Honeydew
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(13, 616)
+        Me.TextBox1.Location = New System.Drawing.Point(18, 616)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(147, 20)
         Me.TextBox1.TabIndex = 5
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(18, 597)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(147, 42)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "Label4"
+        Me.Label4.Visible = False
+        '
+        'lblEdit
+        '
+        Me.lblEdit.AutoSize = True
+        Me.lblEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEdit.ForeColor = System.Drawing.SystemColors.Control
+        Me.lblEdit.Location = New System.Drawing.Point(18, 562)
+        Me.lblEdit.Name = "lblEdit"
+        Me.lblEdit.Size = New System.Drawing.Size(65, 24)
+        Me.lblEdit.TabIndex = 7
+        Me.lblEdit.Text = "Create"
         '
         'Form1
         '
@@ -110,6 +133,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Aquamarine
         Me.ClientSize = New System.Drawing.Size(724, 648)
+        Me.Controls.Add(Me.lblEdit)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.lblEditor)
         Me.Controls.Add(Me.Label3)
@@ -117,7 +142,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "Form1"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Form1"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -132,5 +156,7 @@ Partial Class Form1
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lblEditor As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents lblEdit As System.Windows.Forms.Label
 
 End Class
