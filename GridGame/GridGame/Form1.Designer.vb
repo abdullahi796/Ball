@@ -32,9 +32,15 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblEditor = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.lblEdit = New System.Windows.Forms.Label()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Level1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Leve2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Level3ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Level4ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'tmrLoop
@@ -97,35 +103,62 @@ Partial Class Form1
         Me.lblEditor.Size = New System.Drawing.Size(0, 25)
         Me.lblEditor.TabIndex = 4
         '
-        'TextBox1
-        '
-        Me.TextBox1.BackColor = System.Drawing.Color.Honeydew
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(18, 616)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(147, 20)
-        Me.TextBox1.TabIndex = 5
-        '
-        'Label4
-        '
-        Me.Label4.Location = New System.Drawing.Point(18, 597)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(147, 42)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "Label4"
-        Me.Label4.Visible = False
-        '
         'lblEdit
         '
-        Me.lblEdit.AutoSize = True
         Me.lblEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEdit.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblEdit.Location = New System.Drawing.Point(18, 562)
+        Me.lblEdit.Image = CType(resources.GetObject("lblEdit.Image"), System.Drawing.Image)
+        Me.lblEdit.Location = New System.Drawing.Point(144, 561)
         Me.lblEdit.Name = "lblEdit"
-        Me.lblEdit.Size = New System.Drawing.Size(65, 24)
+        Me.lblEdit.Size = New System.Drawing.Size(53, 54)
         Me.lblEdit.TabIndex = 7
-        Me.lblEdit.Text = "Create"
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(99, 26)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Level1ToolStripMenuItem, Me.Leve2ToolStripMenuItem, Me.Level3ToolStripMenuItem, Me.Level4ToolStripMenuItem})
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(98, 22)
+        Me.ToolStripMenuItem1.Text = "level"
+        '
+        'Level1ToolStripMenuItem
+        '
+        Me.Level1ToolStripMenuItem.Name = "Level1ToolStripMenuItem"
+        Me.Level1ToolStripMenuItem.Size = New System.Drawing.Size(104, 22)
+        Me.Level1ToolStripMenuItem.Text = "level1"
+        '
+        'Leve2ToolStripMenuItem
+        '
+        Me.Leve2ToolStripMenuItem.Name = "Leve2ToolStripMenuItem"
+        Me.Leve2ToolStripMenuItem.Size = New System.Drawing.Size(104, 22)
+        Me.Leve2ToolStripMenuItem.Text = "leve2"
+        '
+        'Level3ToolStripMenuItem
+        '
+        Me.Level3ToolStripMenuItem.Name = "Level3ToolStripMenuItem"
+        Me.Level3ToolStripMenuItem.Size = New System.Drawing.Size(104, 22)
+        Me.Level3ToolStripMenuItem.Text = "level3"
+        '
+        'Level4ToolStripMenuItem
+        '
+        Me.Level4ToolStripMenuItem.Name = "Level4ToolStripMenuItem"
+        Me.Level4ToolStripMenuItem.Size = New System.Drawing.Size(104, 22)
+        Me.Level4ToolStripMenuItem.Text = "level4"
+        '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Items.AddRange(New Object() {"level1", "level2", "level3"})
+        Me.ListBox1.Location = New System.Drawing.Point(18, 541)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(120, 95)
+        Me.ListBox1.TabIndex = 8
         '
         'Form1
         '
@@ -133,9 +166,8 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Aquamarine
         Me.ClientSize = New System.Drawing.Size(724, 648)
+        Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.lblEdit)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.lblEditor)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -143,6 +175,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Panel1)
         Me.Name = "Form1"
         Me.Text = "Form1"
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -155,8 +188,13 @@ Partial Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lblEditor As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents lblEdit As System.Windows.Forms.Label
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Level1ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Leve2ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Level3ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Level4ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
 
 End Class

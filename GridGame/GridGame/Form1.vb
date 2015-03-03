@@ -110,39 +110,32 @@ Public Class Form1
 
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
-        Me.TextBox1.Top = Me.Height - 100
-        Me.Label4.Top = Me.Height - 100
-        Me.lblEdit.Top = Me.Height - 150
-        If Label4.Bounds.Contains(PointToClient(MousePosition)) Then
-            Me.TextBox1.Enabled = True
-        Else
-            Me.TextBox1.Enabled = False
-        End If
-        If levelEditor = True Then
-            player.ball.Visible = False
-        Else
-            player.ball.Visible = True
-        End If
-        If lblEdit.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
-            saveLevel()
-        End If
-        Me.lblEditor.Text = levelEditor
-        Panel1.Width = Me.Width
-        Panel1.Height = Me.Height
+            If levelEditor = True Then
+                player.ball.Visible = False
+            Else
+                player.ball.Visible = True
+            End If
+            If lblEdit.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
+                saveLevel()
+            End If
+            Me.lblEditor.Text = levelEditor
+            Panel1.Width = Me.Width
+            Panel1.Height = Me.Height
 
-        Me.BackColor = Color.FromArgb(31, 218, 175)
-        For i = 0 To 9
-            For c = 0 To 9
-                grid(i, c).display()
+            Me.BackColor = Color.FromArgb(31, 218, 175)
+            For i = 0 To 9
+                For c = 0 To 9
+                    grid(i, c).display()
+                Next
             Next
-        Next
 
-        For i = 0 To 2
-            selectTile(i).display()
-        Next
-        grid(1, 2).img = "arrowDown.png"
-        grid(7, 7).img = "Check.jpg"
+            For i = 0 To 2
+                selectTile(i).display()
+            Next
+            grid(1, 2).img = "arrowDown.png"
+            grid(7, 7).img = "Check.jpg"
         Debug.Print(player.left)
+
         mousePos()
     End Sub
 
@@ -151,9 +144,17 @@ Public Class Form1
     End Sub
     Public Sub saveLevel()
         Dim file As System.IO.StreamWriter
-        file = My.Computer.FileSystem.OpenTextFileWriter(Me.TextBox1.Text & ".txt", False)
-        file.WriteLine("Here ig.")
+        Try
+            file = My.Computer.FileSystem.OpenTextFileWriter(ListBox1.SelectedItem.ToString & ".txt", False)
+            For i = 0 To 9
+                For c = 0 To 9
+                    file.WriteLine(grid(i, c).img)
+                Next
+            Next
             file.Close()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Public Class Ball
@@ -325,8 +326,14 @@ Public Class Form1
             End If
         End If
     End Sub
-    Private Sub Label1_Click(sender As System.Object, e As System.EventArgs) Handles Label1.Click
 
+
+    Private Sub lblEdit_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles lblEdit.MouseDown
+        Me.lblEdit.Image = Image.FromFile("modernuiicons1.png")
+    End Sub
+
+    Private Sub lblEdit_MouseUp(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles lblEdit.MouseUp
+        Me.lblEdit.Image = Image.FromFile("modernuiicons.png")
     End Sub
 End Class
 
