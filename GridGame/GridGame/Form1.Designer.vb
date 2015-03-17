@@ -31,12 +31,14 @@ Partial Class Form1
         Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("DownRight")
         Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("UpRight")
         Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("UpLeft")
-        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("DirectionTiles", New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode5, TreeNode6, TreeNode7})
-        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Hole")
-        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Hover")
-        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("EndTile")
-        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Misc", New System.Windows.Forms.TreeNode() {TreeNode9, TreeNode10, TreeNode11})
-        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Tiles", New System.Windows.Forms.TreeNode() {TreeNode8, TreeNode12})
+        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("ArrowDown")
+        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("DirectionTiles", New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode5, TreeNode6, TreeNode7, TreeNode8})
+        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Hole")
+        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Hover")
+        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("EndTile")
+        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Tile")
+        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Misc", New System.Windows.Forms.TreeNode() {TreeNode10, TreeNode11, TreeNode12, TreeNode13})
+        Dim TreeNode15 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Tiles", New System.Windows.Forms.TreeNode() {TreeNode9, TreeNode14})
         Me.tmrLoop = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tmrMove = New System.Windows.Forms.Timer(Me.components)
@@ -183,19 +185,23 @@ Partial Class Form1
         TreeNode6.Text = "UpRight"
         TreeNode7.Name = "UpLeft.png"
         TreeNode7.Text = "UpLeft"
-        TreeNode8.Name = "DirectionTiles"
-        TreeNode8.Text = "DirectionTiles"
-        TreeNode9.Name = "Hole.png"
-        TreeNode9.Text = "Hole"
-        TreeNode10.Name = "Hover.png"
-        TreeNode10.Text = "Hover"
-        TreeNode11.Name = "Check.png"
-        TreeNode11.Text = "EndTile"
-        TreeNode12.Name = "Misc"
-        TreeNode12.Text = "Misc"
-        TreeNode13.Name = "Tiles"
-        TreeNode13.Text = "Tiles"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode3, TreeNode13})
+        TreeNode8.Name = "ArrowDown.png"
+        TreeNode8.Text = "ArrowDown"
+        TreeNode9.Name = "DirectionTiles"
+        TreeNode9.Text = "DirectionTiles"
+        TreeNode10.Name = "Hole.png"
+        TreeNode10.Text = "Hole"
+        TreeNode11.Name = "Hover.png"
+        TreeNode11.Text = "Hover"
+        TreeNode12.Name = "Check.jpg"
+        TreeNode12.Text = "EndTile"
+        TreeNode13.Name = "Tile_0.png"
+        TreeNode13.Text = "Tile"
+        TreeNode14.Name = "Misc"
+        TreeNode14.Text = "Misc"
+        TreeNode15.Name = "Tiles"
+        TreeNode15.Text = "Tiles"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode3, TreeNode15})
         Me.TreeView1.Size = New System.Drawing.Size(255, 97)
         Me.TreeView1.TabIndex = 9
         '
