@@ -5,7 +5,7 @@ Public Class Form1
     Dim hole(9, 9) As Tile
     Dim isRunning As Boolean = True
     Dim selectTile(3) As selectTile
-    Dim mouseImg As String = "UpRight.png"
+    Dim mouseImg As String = "Tile_0.png"
     Dim countI As Integer
     Dim player As Ball
     Dim countC As Integer
@@ -59,18 +59,26 @@ Public Class Form1
 
     'Mouse Position and Clicks
     Public Sub mousePos()
-        Try
-            mouseImg = TreeView1.SelectedNode.Name
-        Catch ex As Exception
 
-        End Try
+        If TreeView1.SelectedNode.Name <> TreeView1.Nodes(0).Name And TreeView1.SelectedNode.Name <> TreeView1.Nodes(1).Name Then
+            If TreeView1.SelectedNode.Parent.Text <> "levels" Then
+                mouseImg = TreeView1.SelectedNode.Name
+            End If
+
+        End If
+
         For i = 0 To 9
             For c = 0 To 9
                 If grid(i, c).tile.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
-                    grid(i, c).img = mouseImg
+                    Try
+                        grid(i, c).img = mouseImg
+                    Catch ex As Exception
+
+                    End Try
                 End If
             Next
         Next
+
 
     End Sub
 
@@ -103,8 +111,6 @@ Public Class Form1
             Next
         Next
 
-        grid(1, 2).img = "arrowDown.png"
-        grid(7, 7).img = "Check.jpg"
         Debug.Print(player.left)
 
         mousePos()
@@ -127,7 +133,7 @@ Public Class Form1
         Next
     End Sub
     Public Sub saveLevel()
-        MessageBox.Show("This will Overwrite file" & TreeView1.SelectedNode.Name, "OverWrite", MessageBoxButtons.YesNo)
+        MessageBox.Show("This will Overwrite file " & TreeView1.SelectedNode.Name, "OverWrite", MessageBoxButtons.YesNo)
         If (DialogResult = DialogResult.Yes) Then
             Dim file As System.IO.StreamWriter
             Try
