@@ -24,6 +24,19 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("level1")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("level2")
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("levels", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2})
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("DownLeft")
+        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("DownRight")
+        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("UpRight")
+        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("UpLeft")
+        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("DirectionTiles", New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode5, TreeNode6, TreeNode7})
+        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Hole")
+        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Hover")
+        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("EndTile")
+        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Misc", New System.Windows.Forms.TreeNode() {TreeNode9, TreeNode10, TreeNode11})
+        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Tiles", New System.Windows.Forms.TreeNode() {TreeNode8, TreeNode12})
         Me.tmrLoop = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tmrMove = New System.Windows.Forms.Timer(Me.components)
@@ -39,7 +52,7 @@ Partial Class Form1
         Me.Leve2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Level3ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Level4ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -109,7 +122,7 @@ Partial Class Form1
         Me.lblEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEdit.ForeColor = System.Drawing.SystemColors.Control
         Me.lblEdit.Image = CType(resources.GetObject("lblEdit.Image"), System.Drawing.Image)
-        Me.lblEdit.Location = New System.Drawing.Point(144, 561)
+        Me.lblEdit.Location = New System.Drawing.Point(271, 565)
         Me.lblEdit.Name = "lblEdit"
         Me.lblEdit.Size = New System.Drawing.Size(53, 54)
         Me.lblEdit.TabIndex = 7
@@ -151,14 +164,40 @@ Partial Class Form1
         Me.Level4ToolStripMenuItem.Size = New System.Drawing.Size(104, 22)
         Me.Level4ToolStripMenuItem.Text = "level4"
         '
-        'ListBox1
+        'TreeView1
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Items.AddRange(New Object() {"level1", "level2", "level3"})
-        Me.ListBox1.Location = New System.Drawing.Point(18, 541)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(120, 95)
-        Me.ListBox1.TabIndex = 8
+        Me.TreeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TreeView1.Location = New System.Drawing.Point(18, 539)
+        Me.TreeView1.Name = "TreeView1"
+        TreeNode1.Name = "level1"
+        TreeNode1.Text = "level1"
+        TreeNode2.Name = "level2"
+        TreeNode2.Text = "level2"
+        TreeNode3.Name = "levels"
+        TreeNode3.Text = "levels"
+        TreeNode4.Name = "DownLeft.png"
+        TreeNode4.Text = "DownLeft"
+        TreeNode5.Name = "DownRight.png"
+        TreeNode5.Text = "DownRight"
+        TreeNode6.Name = "UpRight.png"
+        TreeNode6.Text = "UpRight"
+        TreeNode7.Name = "UpLeft.png"
+        TreeNode7.Text = "UpLeft"
+        TreeNode8.Name = "DirectionTiles"
+        TreeNode8.Text = "DirectionTiles"
+        TreeNode9.Name = "Hole.png"
+        TreeNode9.Text = "Hole"
+        TreeNode10.Name = "Hover.png"
+        TreeNode10.Text = "Hover"
+        TreeNode11.Name = "Check.png"
+        TreeNode11.Text = "EndTile"
+        TreeNode12.Name = "Misc"
+        TreeNode12.Text = "Misc"
+        TreeNode13.Name = "Tiles"
+        TreeNode13.Text = "Tiles"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode3, TreeNode13})
+        Me.TreeView1.Size = New System.Drawing.Size(255, 97)
+        Me.TreeView1.TabIndex = 9
         '
         'Form1
         '
@@ -166,7 +205,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Aquamarine
         Me.ClientSize = New System.Drawing.Size(724, 648)
-        Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.lblEdit)
         Me.Controls.Add(Me.lblEditor)
         Me.Controls.Add(Me.Label3)
@@ -195,6 +234,6 @@ Partial Class Form1
     Friend WithEvents Leve2ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Level3ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Level4ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
 
 End Class
