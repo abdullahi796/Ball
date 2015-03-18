@@ -15,6 +15,8 @@ Public Class Form1
     Dim pic2 As Boolean = False
     Dim pic3 As Boolean = False
     Dim levelEditor As Boolean = False
+    Dim level(3) As String
+    Dim playerPos(3) As String
 
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Space And levelEditor = False Then
@@ -23,6 +25,9 @@ Public Class Form1
             Else
                 player.key = "space"
             End If
+        End If
+        If e.KeyValue = Keys.D1 Then
+            restart("level1.txt")
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -85,6 +90,12 @@ Public Class Form1
 
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
+        Dim count As Integer = 0
+        For i = 0 To 1
+            count += 1
+            level(count) = TreeView1.Nodes(0).Nodes(i).Text
+        Next
+        Debug.Print(level(2))
         Me.TreeView1.Top = Me.Height - 175
         Me.lblEdit.Top = Me.Height - 125
         If levelEditor = True Then
@@ -111,12 +122,13 @@ Public Class Form1
             Next
         Next
 
-        Debug.Print(player.left)
+
 
         mousePos()
     End Sub
 
-    Public Sub restart()
+    Public Sub restart(ByVal level As String)
+        Dim reader As New StreamReader(level)
         For i = 0 To 9
             For c = 0 To 9
                 'If i = 1 And c = 7 Then
@@ -124,20 +136,16 @@ Public Class Form1
                 '    grid(i, c).setup()
                 '    Panel1.Controls.Add(grid(i, c).tile)
                 'Else
-                If c = 9 Then
-                    grid(i, c).img = "Tile_1.png"
-                Else
-                    grid(i, c).img = "Tile_0.png"
-                End If
+                grid(i, c).img = reader.ReadLine
             Next
         Next
     End Sub
     Public Sub saveLevel()
-        MessageBox.Show("This will Overwrite file " & TreeView1.SelectedNode.Name, "OverWrite", MessageBoxButtons.YesNo)
+        DialogResult = MessageBox.Show("This will Overwrite file " & TreeView1.SelectedNode.Name, "OverWrite", MessageBoxButtons.YesNo)
         If (DialogResult = DialogResult.Yes) Then
             Dim file As System.IO.StreamWriter
             Try
-                file = My.Computer.FileSystem.OpenTextFileWriter(Me.TreeView1.SelectedNode.Text & ".txt", False)
+                file = My.Computer.FileSystem.OpenTextFileWriter("C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\bin\Debug\Blank.txt", False)
                 For i = 0 To 9
                     For c = 0 To 9
                         file.WriteLine(grid(i, c).img)
@@ -258,7 +266,7 @@ Public Class Form1
                 End If
                 If current = "Check.jpg" Then
                     key = ""
-                    Form1.restart()
+                    Form1.restart("level2.txt")
                 End If
             End If
         End Sub
@@ -333,7 +341,7 @@ Public Class Form1
     End Sub
 
     Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
-        restart()
+        restart("Blank.txt")
     End Sub
 
     Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
