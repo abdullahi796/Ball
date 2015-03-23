@@ -16,8 +16,9 @@ Public Class Form1
     Dim pic3 As Boolean = False
     Dim levelEditor As Boolean = False
     Dim level(3) As String
-    Dim playerPos(3) As String
-
+    Dim playerPosX(3) As Integer
+    Dim playerPosY(3) As Integer
+    Dim restartLevel As Boolean
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Space And levelEditor = False Then
             If player.key = "space" Then
@@ -27,7 +28,8 @@ Public Class Form1
             End If
         End If
         If e.KeyValue = Keys.D1 Then
-            restart("level1.txt")
+            restart(2)
+            restartLevel = True
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -65,11 +67,8 @@ Public Class Form1
     'Mouse Position and Clicks
     Public Sub mousePos()
 
-        If TreeView1.SelectedNode.Name <> TreeView1.Nodes(0).Name And TreeView1.SelectedNode.Name <> TreeView1.Nodes(1).Name Then
-            If TreeView1.SelectedNode.Parent.Text <> "levels" Then
-                mouseImg = TreeView1.SelectedNode.Name
-            End If
-
+        If TreeView1.Focused Then
+            mouseImg = TreeView1.SelectedNode.Name
         End If
 
         For i = 0 To 9
@@ -93,21 +92,35 @@ Public Class Form1
         Dim count As Integer = 0
         For i = 0 To 1
             count += 1
-            level(count) = TreeView1.Nodes(0).Nodes(i).Text
+            level(count) = TreeView2.Nodes(0).Nodes(i).Text
+            Debug.Print(TreeView2.Nodes(0).Nodes(i).Text)
         Next
+
+        playerPosX(0) = 1
+        playerPosY(0) = 1
+        playerPosX(2) = 3
+        playerPosY(2) = 6
+        playerPosX(1) = 1
+        playerPosY(1) = 1
+
         Debug.Print(level(2))
         Me.TreeView1.Top = Me.Height - 175
+        Me.TreeView2.Top = Me.Height - 275
         Me.lblEdit.Top = Me.Height - 125
         If levelEditor = True Then
             player.ball.Visible = False
             TreeView1.Visible = True
             TreeView1.Enabled = True
+            TreeView2.Visible = True
+            TreeView2.Enabled = True
             Me.lblEdit.Visible = True
             Me.lblEdit.Enabled = True
         Else
             player.ball.Visible = True
             TreeView1.Visible = False
             TreeView1.Enabled = False
+            TreeView2.Visible = False
+            TreeView2.Enabled = False
             Me.lblEdit.Visible = False
             Me.lblEdit.Enabled = False
         End If
@@ -127,8 +140,15 @@ Public Class Form1
         mousePos()
     End Sub
 
-    Public Sub restart(ByVal level As String)
-        Dim reader As New StreamReader(level)
+    Public Sub restart(ByVal num As String)
+        Dim reader As New StreamReader(level(num) & ".txt")
+        player.x = 2 * 60
+        player.y = 2 * 60
+        player.x += (700 / 2)
+        player.y += (700 / 4) + 5
+        player.locX = 2
+        player.locY = 2
+        player.ball.Update()
         For i = 0 To 9
             For c = 0 To 9
                 'If i = 1 And c = 7 Then
@@ -141,20 +161,22 @@ Public Class Form1
         Next
     End Sub
     Public Sub saveLevel()
-        DialogResult = MessageBox.Show("This will Overwrite file " & TreeView1.SelectedNode.Name, "OverWrite", MessageBoxButtons.YesNo)
-        If (DialogResult = DialogResult.Yes) Then
-            Dim file As System.IO.StreamWriter
-            Try
-                file = My.Computer.FileSystem.OpenTextFileWriter("C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\bin\Debug\Blank.txt", False)
-                For i = 0 To 9
-                    For c = 0 To 9
-                        file.WriteLine(grid(i, c).img)
+        If TreeView2.Focused Then
+            DialogResult = MessageBox.Show("This will Overwrite file " & TreeView2.SelectedNode.Name, "OverWrite", MessageBoxButtons.YesNo)
+            If (DialogResult = DialogResult.Yes) Then
+                Dim file As System.IO.StreamWriter
+                Try
+                    file = My.Computer.FileSystem.OpenTextFileWriter(TreeView2.SelectedNode.Name, False)
+                    For i = 0 To 9
+                        For c = 0 To 9
+                            file.WriteLine(grid(i, c).img)
+                        Next
                     Next
-                Next
-                file.Close()
-            Catch ex As Exception
+                    file.Close()
+                Catch ex As Exception
 
-            End Try
+                End Try
+            End If
         End If
         'MessageBox.Show(TreeView1.SelectedNode.ToString)
     End Sub
@@ -180,8 +202,8 @@ Public Class Form1
         Public Sub New(ByVal tempX As Integer, ByVal tempY As Integer, ByVal tempImg As String)
             x = tempX * 60
             y = tempY * 60
-            x += (Form1.Width / 2) - 20
-            y += (Form1.Height / 4) + 5
+            x += (700 / 2)
+            y += (700 / 4) + 5
             img = tempImg
             locX = tempX
             locY = tempY
@@ -199,9 +221,10 @@ Public Class Form1
             Debug.Print(lastTile)
         End Sub
         Public Sub move()
-            If key = "space" And Form1.levelEditor = False Then
-                ball.Top = y - 5
-                ball.Left = x + 3
+            If key = "space" Or Form1.restartLevel = True Then
+                Form1.restartLevel = False
+                ball.Top = y
+                ball.Left = x
                 If down = "arrowDown.png" And locY + 1 < 9 Then
                     lastTile = "Up"
                     last = "Down"
@@ -266,7 +289,7 @@ Public Class Form1
                 End If
                 If current = "Check.jpg" Then
                     key = ""
-                    Form1.restart("level2.txt")
+                    Form1.restart(2)
                 End If
             End If
         End Sub
@@ -279,6 +302,7 @@ Public Class Form1
         player.up = grid(player.locX, player.locY - 1).img
         player.down = grid(player.locX, player.locY + 1).img
         player.current = grid(player.locX, player.locY).img
+        Debug.Print(player.down)
     End Sub
 
     Private Sub tmrUI_Tick(sender As System.Object, e As System.EventArgs) Handles tmrUI.Tick
@@ -341,7 +365,7 @@ Public Class Form1
     End Sub
 
     Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
-        restart("Blank.txt")
+        restart(2)
     End Sub
 
     Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
