@@ -42,14 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GridGame.exe" size="40960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GridGame.exe" size="67072">
       <assemblyIdentity name="GridGame" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GMszuf4p++Lapq11ZPrXc88yna0=</dsig:DigestValue>
+        <dsig:DigestValue>vKZGUSMnAdNQDIGq12ApjoKKz4w=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="af-ZA\GridGame.resources.dll" size="12800">
+      <assemblyIdentity name="GridGame.resources" version="1.0.0.0" language="af-ZA" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>ErcjAnhLuV+2HKwy3cb6dGQeL5U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
