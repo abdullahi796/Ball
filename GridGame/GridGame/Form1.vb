@@ -13,10 +13,10 @@ Public Class Form1
     Dim pic2 As Boolean = False
     Dim pic3 As Boolean = False
     Dim levelEditor As Boolean = False
-    Dim level(3) As String
+    Dim level(6) As String
     Dim num As Integer
-    Dim playerPosX(3) As Integer
-    Dim playerPosY(3) As Integer
+    Dim playerPosX(6) As Integer
+    Dim playerPosY(6) As Integer
     Dim restartLevel As Boolean
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Space And levelEditor = False Then
@@ -27,7 +27,7 @@ Public Class Form1
             End If
         End If
         If e.KeyValue = Keys.D1 Then
-            restart(1)
+            restart(5)
             restartLevel = True
             num = 1
         End If
@@ -96,10 +96,11 @@ Public Class Form1
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
         Dim count As Integer = 0
-        For i = 0 To 2
+        For i = 0 To 4
             count += 1
             level(count) = TreeView2.Nodes(0).Nodes(i).Text
         Next
+
 
         Debug.Print(player.down)
 
@@ -120,37 +121,41 @@ Public Class Form1
         playerPosY(2) = 2
         playerPosX(3) = 1
         playerPosY(3) = 1
+        playerPosX(4) = 5
+        playerPosY(4) = 2
+        playerPosX(5) = 4
+        playerPosY(5) = 2
 
-            Me.TreeView1.Top = Me.Height - 175
-            Me.TreeView2.Top = Me.Height - 275
-            Me.lblEdit.Top = Me.Height - 125
-            If levelEditor = True Then
-                player.ball.Visible = False
-                TreeView1.Visible = True
-                TreeView1.Enabled = True
-                TreeView2.Visible = True
-                TreeView2.Enabled = True
-                Me.lblEdit.Visible = True
-                Me.lblEdit.Enabled = True
-            Else
-                player.ball.Visible = True
-                TreeView1.Visible = False
-                TreeView1.Enabled = False
-                TreeView2.Visible = False
-                TreeView2.Enabled = False
-                Me.lblEdit.Visible = False
-                Me.lblEdit.Enabled = False
-            End If
-            Me.lblEditor.Text = levelEditor
-            Panel1.Width = Me.Width
-            Panel1.Height = Me.Height
+        Me.TreeView1.Top = Me.Height - 175
+        Me.TreeView2.Top = Me.Height - 275
+        Me.lblEdit.Top = Me.Height - 125
+        If levelEditor = True Then
+            player.ball.Visible = False
+            TreeView1.Visible = True
+            TreeView1.Enabled = True
+            TreeView2.Visible = True
+            TreeView2.Enabled = True
+            Me.lblEdit.Visible = True
+            Me.lblEdit.Enabled = True
+        Else
+            player.ball.Visible = True
+            TreeView1.Visible = False
+            TreeView1.Enabled = False
+            TreeView2.Visible = False
+            TreeView2.Enabled = False
+            Me.lblEdit.Visible = False
+            Me.lblEdit.Enabled = False
+        End If
+        Me.lblEditor.Text = levelEditor
+        Panel1.Width = Me.Width
+        Panel1.Height = Me.Height
 
-            Me.BackColor = Color.FromArgb(31, 218, 175)
-            For i = 0 To 9
-                For c = 0 To 9
-                    grid(i, c).display()
-                Next
+        Me.BackColor = Color.FromArgb(31, 218, 175)
+        For i = 0 To 9
+            For c = 0 To 9
+                grid(i, c).display()
             Next
+        Next
         dragdrop()
         mousePos()
 
@@ -165,6 +170,8 @@ Public Class Form1
             mouseImg = "UpLeft.png"
         ElseIf picUpRight.Bounds.Contains(PointToClient(MousePosition)) Then
             mouseImg = "UpRight.png"
+        ElseIf picTile.Bounds.Contains(PointToClient(MousePosition)) Then
+            mouseImg = "Tile_0.png"
         End If
     End Sub
 
