@@ -27,7 +27,7 @@ Public Class Form1
             End If
         End If
         If e.KeyValue = Keys.D1 Then
-            restart(5)
+            restart(4)
             restartLevel = True
             num = 1
         End If
@@ -37,7 +37,7 @@ Public Class Form1
         Panel1.Height = Me.Height
         Panel1.Left = 0
         Panel1.Top = 0
-        player = New Ball(1, 1, "Ball_0.png")
+        player = New Ball(3, 3, "Ball_0.png")
         player.setup()
         Panel1.Controls.Add(player.ball)
         Dim tileReader As String
@@ -61,7 +61,7 @@ Public Class Form1
                 End If
             Next
         Next
-        restart(1)
+        restart(3)
         restartLevel = True
         num = 1
     End Sub
@@ -102,7 +102,7 @@ Public Class Form1
         Next
 
 
-        Debug.Print(player.down)
+        Debug.Print(player.last)
 
         Me.picDownLeft.Left = Me.Width - 200
         Me.picDownLeft.Top = 100
@@ -121,8 +121,8 @@ Public Class Form1
         playerPosY(2) = 2
         playerPosX(3) = 1
         playerPosY(3) = 1
-        playerPosX(4) = 5
-        playerPosY(4) = 2
+        playerPosX(4) = 3
+        playerPosY(4) = 3
         playerPosX(5) = 4
         playerPosY(5) = 2
 
@@ -156,12 +156,12 @@ Public Class Form1
                 grid(i, c).display()
             Next
         Next
-        dragdrop()
+        selectTile()
         mousePos()
 
     End Sub
 
-    Public Sub dragdrop()
+    Public Sub selectTile()
         If picDownLeft.Bounds.Contains(PointToClient(MousePosition)) Then
             mouseImg = "DownLeft.png"
         ElseIf picDownRight.Bounds.Contains(PointToClient(MousePosition)) Then
@@ -171,7 +171,7 @@ Public Class Form1
         ElseIf picUpRight.Bounds.Contains(PointToClient(MousePosition)) Then
             mouseImg = "UpRight.png"
         ElseIf picTile.Bounds.Contains(PointToClient(MousePosition)) Then
-            mouseImg = "Tile_0.png"
+            mouseImg = "block.png"
         End If
     End Sub
 
@@ -306,6 +306,12 @@ Public Class Form1
                     lastTile = "Left"
                     x += 60
                     locX += 1
+                ElseIf right = "block.png" Then
+                    If last = "Right" Then
+                        lastTile = "Right"
+                        x -= 60
+                        locX -= 1
+                    End If
                 ElseIf last = "Up" And locY - 1 > 0 Then
                     lastTile = "Down"
                     y -= 60
@@ -323,6 +329,8 @@ Public Class Form1
                     x -= 60
                     locX -= 1
                 End If
+
+
                 If current = "Check.jpg" Then
                     key = ""
                     Form1.num = Form1.num + 1
@@ -341,10 +349,6 @@ Public Class Form1
         player.up = grid(player.locX, player.locY - 1).img
         player.down = grid(player.locX, player.locY + 1).img
         player.current = grid(player.locX, player.locY).img
-        Debug.Print(player.up)
-        Debug.Print(player.down)
-        Debug.Print(player.left)
-        Debug.Print(player.right)
         If num = 1 Then
             tmrMove.Interval = 75
         ElseIf num = 2 Then

@@ -67,7 +67,7 @@ Partial Class Form1
         'tmrMove
         '
         Me.tmrMove.Enabled = True
-        Me.tmrMove.Interval = 150
+        Me.tmrMove.Interval = 125
         '
         'Label1
         '
