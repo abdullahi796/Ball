@@ -37,7 +37,7 @@ Public Class Form1
         Panel1.Height = Me.Height
         Panel1.Left = 0
         Panel1.Top = 0
-        player = New Ball(3, 3, "Ball_0.png")
+        player = New Ball(3, 3, "Ball_0._Purple_png")
         player.setup()
         Panel1.Controls.Add(player.ball)
         Dim tileReader As String
@@ -61,7 +61,7 @@ Public Class Form1
                 End If
             Next
         Next
-        restart(3)
+        restart(1)
         restartLevel = True
         num = 1
     End Sub
@@ -171,7 +171,7 @@ Public Class Form1
         ElseIf picUpRight.Bounds.Contains(PointToClient(MousePosition)) Then
             mouseImg = "UpRight.png"
         ElseIf picTile.Bounds.Contains(PointToClient(MousePosition)) Then
-            mouseImg = "block.png"
+            mouseImg = "Tile_0_Blue.png"
         End If
     End Sub
 
@@ -234,6 +234,7 @@ Public Class Form1
         Public last As String
         Public lastTile As String
         Public lastCount As Integer
+        Public playerColor As String
 
         Public Sub New(ByVal tempX As Integer, ByVal tempY As Integer, ByVal tempImg As String)
             x = tempX * 60
@@ -243,6 +244,7 @@ Public Class Form1
             img = tempImg
             locX = tempX
             locY = tempY
+            'playerColor = tempColor
         End Sub
         Public Sub setup()
             ball = New Windows.Forms.PictureBox
@@ -257,6 +259,12 @@ Public Class Form1
 
         End Sub
         Public Sub move()
+            'If img = "Blue" Then
+            '    img = "Ball_0_Blue"
+            'ElseIf img = "Purple" Then
+            '    img = "Ball_0_Purple"
+            'End If
+            'ball.Image = Image.FromFile(img)
             If key = "space" Or Form1.restartLevel = True Then
                 Form1.restartLevel = False
                 ball.Top = y - 2
