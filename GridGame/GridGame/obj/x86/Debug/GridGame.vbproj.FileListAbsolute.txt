@@ -33,3 +33,16 @@ C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.Resour
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.vbproj.GenerateResource.Cache
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.exe.manifest
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.application
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.exe
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.xml
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.pdb
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\bin\Debug\GridGame.exe.manifest
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\bin\Debug\GridGame.application
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\bin\Debug\GridGame.exe
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\bin\Debug\GridGame.pdb
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\bin\Debug\GridGame.xml
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.Form1.resources
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.Resources.resources
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.vbproj.GenerateResource.Cache
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.exe.manifest
+C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.application

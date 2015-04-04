@@ -11,9 +11,9 @@ Tile_1.png
 Tile_0.png
 Tile_0.png
 arrowDown.png
+UpRight.png
 Tile_0.png
-Tile_0.png
-Tile_0.png
+UpRight.png
 Tile_0.png
 Tile_0.png
 Tile_0.png
