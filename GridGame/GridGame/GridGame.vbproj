@@ -126,6 +126,9 @@
     <Compile Include="Tile.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.af-ZA.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>

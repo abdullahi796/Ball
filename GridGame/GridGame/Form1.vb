@@ -4,18 +4,20 @@ Public Class Form1
     Public grid(9, 9) As Tile
     Dim hole(9, 9) As Tile
     Dim isRunning As Boolean = True
-    Dim selectTile(3) As selectTile
-    Dim mouseImg As String = "UpRight.png"
+    Dim mouseImg As String = "Tile_0.png"
     Dim countI As Integer
     Dim player As Ball
     Dim countC As Integer
     Dim key As String
-    Dim reader As StreamReader = New StreamReader("selectTile.txt")
     Dim pic1 As Boolean = False
     Dim pic2 As Boolean = False
     Dim pic3 As Boolean = False
     Dim levelEditor As Boolean = False
-
+    Dim level(6) As String
+    Dim num As Integer
+    Dim playerPosX(6) As Integer
+    Dim playerPosY(6) As Integer
+    Dim restartLevel As Boolean
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Space And levelEditor = False Then
             If player.key = "space" Then
@@ -24,22 +26,10 @@ Public Class Form1
                 player.key = "space"
             End If
         End If
-        If e.KeyValue = Keys.A Then
-            key = "1"
-        End If
-        If e.KeyValue = Keys.S Then
-            key = "2"
-        End If
-        If e.KeyValue = Keys.D Then
-            key = "3"
-        End If
-        If e.KeyValue = Keys.F Then
-            key = "4"
-        End If
-        If e.KeyValue = Keys.P And levelEditor = False Then
-            levelEditor = True
-        ElseIf e.KeyValue = Keys.P And levelEditor = True Then
-            levelEditor = False
+        If e.KeyValue = Keys.D1 Then
+            restart(4)
+            restartLevel = True
+            num = 1
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -47,7 +37,7 @@ Public Class Form1
         Panel1.Height = Me.Height
         Panel1.Left = 0
         Panel1.Top = 0
-        player = New Ball(1, 1, "Ball_0.png")
+        player = New Ball(3, 3, "Ball_0.png")
         player.setup()
         Panel1.Controls.Add(player.ball)
         Dim tileReader As String
@@ -71,90 +61,160 @@ Public Class Form1
                 End If
             Next
         Next
-
-        For i = 0 To 4
-            tileReader = reader.ReadLine
-            selectTile(i) = New selectTile(11, i, tileReader)
-            selectTile(i).setup()
-            Panel1.Controls.Add(selectTile(i).tile)
-        Next
+        restart(3)
+        restartLevel = True
+        num = 1
     End Sub
 
 
     'Mouse Position and Clicks
     Public Sub mousePos()
-        If key = "1" Then
-            mouseImg = "DownLeft.png"
-        ElseIf key = "2" Then
-            mouseImg = "DownRight.png"
-        ElseIf key = "3" Then
-            mouseImg = "UpLeft.png"
-        ElseIf key = "4" Then
-            mouseImg = "UpRight.png"
-        End If
+        Try
+            If TreeView1.Focused Then
+                mouseImg = TreeView1.SelectedNode.Name
+            End If
+        Catch ex As Exception
+
+        End Try
+
         For i = 0 To 9
             For c = 0 To 9
                 If grid(i, c).tile.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
-                    grid(i, c).img = mouseImg
+                    Try
+                        grid(i, c).img = mouseImg
+                    Catch ex As Exception
+
+                    End Try
                 End If
             Next
         Next
-        For i = 0 To 2
-            selectTile(i).tile.Visible = False
-            If selectTile(i).tile.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
-                mouseImg = selectTile(i).img
-            End If
-        Next
+
+
     End Sub
 
 
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
-            If levelEditor = True Then
-                player.ball.Visible = False
-            Else
-                player.ball.Visible = True
-            End If
-            If lblEdit.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
-                saveLevel()
-            End If
-            Me.lblEditor.Text = levelEditor
-            Panel1.Width = Me.Width
-            Panel1.Height = Me.Height
+        Dim count As Integer = 0
+        For i = 0 To 4
+            count += 1
+            level(count) = TreeView2.Nodes(0).Nodes(i).Text
+        Next
 
-            Me.BackColor = Color.FromArgb(31, 218, 175)
-            For i = 0 To 9
-                For c = 0 To 9
-                    grid(i, c).display()
-                Next
+
+        Debug.Print(player.last)
+
+        Me.picDownLeft.Left = Me.Width - 200
+        Me.picDownLeft.Top = 100
+        Me.picDownRight.Left = Me.Width - 330
+        Me.picDownRight.Top = 100
+        Me.picUpLeft.Left = Me.Width - 200
+        Me.picUpLeft.Top = 200
+        Me.picUpRight.Left = Me.Width - 330
+        Me.picUpRight.Top = 200
+        Me.picTile.Top = 150
+        Me.picTile.Left = Me.Width - 265
+
+        playerPosX(1) = 1
+        playerPosY(1) = 1
+        playerPosX(2) = 6
+        playerPosY(2) = 2
+        playerPosX(3) = 1
+        playerPosY(3) = 1
+        playerPosX(4) = 3
+        playerPosY(4) = 3
+        playerPosX(5) = 4
+        playerPosY(5) = 2
+
+        Me.TreeView1.Top = Me.Height - 175
+        Me.TreeView2.Top = Me.Height - 275
+        Me.lblEdit.Top = Me.Height - 125
+        If levelEditor = True Then
+            player.ball.Visible = False
+            TreeView1.Visible = True
+            TreeView1.Enabled = True
+            TreeView2.Visible = True
+            TreeView2.Enabled = True
+            Me.lblEdit.Visible = True
+            Me.lblEdit.Enabled = True
+        Else
+            player.ball.Visible = True
+            TreeView1.Visible = False
+            TreeView1.Enabled = False
+            TreeView2.Visible = False
+            TreeView2.Enabled = False
+            Me.lblEdit.Visible = False
+            Me.lblEdit.Enabled = False
+        End If
+        Me.lblEditor.Text = levelEditor
+        Panel1.Width = Me.Width
+        Panel1.Height = Me.Height
+
+        Me.BackColor = Color.FromArgb(31, 218, 175)
+        For i = 0 To 9
+            For c = 0 To 9
+                grid(i, c).display()
             Next
-
-            For i = 0 To 2
-                selectTile(i).display()
-            Next
-            grid(1, 2).img = "arrowDown.png"
-            grid(7, 7).img = "Check.jpg"
-        Debug.Print(player.left)
-
+        Next
+        selectTile()
         mousePos()
+
     End Sub
 
-    Public Sub restart()
+    Public Sub selectTile()
+        If picDownLeft.Bounds.Contains(PointToClient(MousePosition)) Then
+            mouseImg = "DownLeft.png"
+        ElseIf picDownRight.Bounds.Contains(PointToClient(MousePosition)) Then
+            mouseImg = "DownRight.png"
+        ElseIf picUpLeft.Bounds.Contains(PointToClient(MousePosition)) Then
+            mouseImg = "UpLeft.png"
+        ElseIf picUpRight.Bounds.Contains(PointToClient(MousePosition)) Then
+            mouseImg = "UpRight.png"
+        ElseIf picTile.Bounds.Contains(PointToClient(MousePosition)) Then
+            mouseImg = "block.png"
+        End If
+    End Sub
+
+    Public Sub restart(ByVal num As String)
+        Dim reader As New StreamReader(level(num) & ".txt")
+        player.x = playerPosX(num) * 60
+        player.y = playerPosY(num) * 60
+        player.x += (700 / 2)
+        player.y += (700 / 4)
+        player.locX = playerPosX(num)
+        player.locY = playerPosY(num)
+        For i = 0 To 9
+            For c = 0 To 9
+                'If i = 1 And c = 7 Then
+                '    grid(i, c) = New Tile(i, c, "Hole.png")
+                '    grid(i, c).setup()
+                '    Panel1.Controls.Add(grid(i, c).tile)
+                'Else
+                grid(i, c).img = reader.ReadLine
+            Next
+        Next
+        restartLevel = False
 
     End Sub
     Public Sub saveLevel()
-        Dim file As System.IO.StreamWriter
-        Try
-            file = My.Computer.FileSystem.OpenTextFileWriter(ListBox1.SelectedItem.ToString & ".txt", False)
-            For i = 0 To 9
-                For c = 0 To 9
-                    file.WriteLine(grid(i, c).img)
-                Next
-            Next
-            file.Close()
-        Catch ex As Exception
+        If TreeView2.Focused Then
+            DialogResult = MessageBox.Show("This will Overwrite file " & TreeView2.SelectedNode.Name, "OverWrite", MessageBoxButtons.YesNo)
+            If (DialogResult = DialogResult.Yes) Then
+                Dim file As System.IO.StreamWriter
+                Try
+                    file = My.Computer.FileSystem.OpenTextFileWriter(TreeView2.SelectedNode.Name, False)
+                    For i = 0 To 9
+                        For c = 0 To 9
+                            file.WriteLine(grid(i, c).img)
+                        Next
+                    Next
+                    file.Close()
+                Catch ex As Exception
 
-        End Try
+                End Try
+            End If
+        End If
+        'MessageBox.Show(TreeView1.SelectedNode.ToString)
     End Sub
 
     Public Class Ball
@@ -178,8 +238,8 @@ Public Class Form1
         Public Sub New(ByVal tempX As Integer, ByVal tempY As Integer, ByVal tempImg As String)
             x = tempX * 60
             y = tempY * 60
-            x += (Form1.Width / 2) - 20
-            y += (Form1.Height / 4) + 5
+            x += (700 / 2)
+            y += (700 / 4) + 5
             img = tempImg
             locX = tempX
             locY = tempY
@@ -194,12 +254,13 @@ Public Class Form1
             ball.Height = 48
             ball.BackColor = Color.Transparent
             ball.SizeMode = PictureBoxSizeMode.AutoSize
-            Debug.Print(lastTile)
+
         End Sub
         Public Sub move()
-            If key = "space" And Form1.levelEditor = False Then
-                ball.Top = y - 5
-                ball.Left = x + 3
+            If key = "space" Or Form1.restartLevel = True Then
+                Form1.restartLevel = False
+                ball.Top = y - 2
+                ball.Left = x
                 If down = "arrowDown.png" And locY + 1 < 9 Then
                     lastTile = "Up"
                     last = "Down"
@@ -245,6 +306,12 @@ Public Class Form1
                     lastTile = "Left"
                     x += 60
                     locX += 1
+                ElseIf right = "block.png" Then
+                    If last = "Right" Then
+                        lastTile = "Right"
+                        x -= 60
+                        locX -= 1
+                    End If
                 ElseIf last = "Up" And locY - 1 > 0 Then
                     lastTile = "Down"
                     y -= 60
@@ -262,9 +329,14 @@ Public Class Form1
                     x -= 60
                     locX -= 1
                 End If
+
+
                 If current = "Check.jpg" Then
                     key = ""
-                    Form1.restart()
+                    Form1.num = Form1.num + 1
+                    Form1.restart(Form1.num)
+                    Form1.restartLevel = True
+                    last = "Tile"
                 End If
             End If
         End Sub
@@ -277,6 +349,11 @@ Public Class Form1
         player.up = grid(player.locX, player.locY - 1).img
         player.down = grid(player.locX, player.locY + 1).img
         player.current = grid(player.locX, player.locY).img
+        If num = 1 Then
+            tmrMove.Interval = 75
+        ElseIf num = 2 Then
+            tmrMove.Interval = 150
+        End If
     End Sub
 
     Private Sub tmrUI_Tick(sender As System.Object, e As System.EventArgs) Handles tmrUI.Tick
@@ -285,16 +362,16 @@ Public Class Form1
         Else
             showUI("Hide")
         End If
-        If Label2.Left < 15 Then
-            Label2.Visible = False
-        End If
-        If Label3.Left < 15 Then
-            Label3.Visible = False
-        End If
+        'If Label2.Left < 15 Then
+        '    Label2.Visible = False
+        'End If
+        'If Label3.Left < 15 Then
+        '    Label3.Visible = False
+        'End If
     End Sub
 
     Public Sub showUI(ByVal value As String)
-        If value = "Hide" Then
+        If value = "Hide" Or Label1.Bounds.Contains(PointToClient(MousePosition)) = False Then
             If pic2 = True Then
                 If Label2.Left > 12 Then
                     Label2.Left -= 20
@@ -327,13 +404,27 @@ Public Class Form1
         End If
     End Sub
 
-
+    Private Sub lblEdit_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles lblEdit.MouseClick
+        saveLevel()
+    End Sub
     Private Sub lblEdit_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles lblEdit.MouseDown
         Me.lblEdit.Image = Image.FromFile("modernuiicons1.png")
     End Sub
 
     Private Sub lblEdit_MouseUp(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles lblEdit.MouseUp
         Me.lblEdit.Image = Image.FromFile("modernuiicons.png")
+    End Sub
+
+    Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
+        restart(2)
+    End Sub
+
+    Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
+        If levelEditor = False Then
+            levelEditor = True
+        Else
+            levelEditor = False
+        End If
     End Sub
 End Class
 
