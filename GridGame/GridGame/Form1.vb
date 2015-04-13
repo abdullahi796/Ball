@@ -13,10 +13,11 @@ Public Class Form1
     Dim pic2 As Boolean = False
     Dim pic3 As Boolean = False
     Dim levelEditor As Boolean = False
-    Dim level(6) As String
+    Dim level(8) As String
     Dim num As Integer
-    Dim playerPosX(6) As Integer
-    Dim playerPosY(6) As Integer
+    Dim colorStat As String = "Purple"
+    Dim playerPosX(8) As Integer
+    Dim playerPosY(8) As Integer
     Dim restartLevel As Boolean
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Space And levelEditor = False Then
@@ -27,9 +28,9 @@ Public Class Form1
             End If
         End If
         If e.KeyValue = Keys.D1 Then
-            restart(4)
+            restart(7)
             restartLevel = True
-            num = 1
+            num = 4
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -37,7 +38,7 @@ Public Class Form1
         Panel1.Height = Me.Height
         Panel1.Left = 0
         Panel1.Top = 0
-        player = New Ball(3, 3, "Ball_0.png")
+        player = New Ball(3, 2, "Ball_0_" & colorStat & ".png")
         player.setup()
         Panel1.Controls.Add(player.ball)
         Dim tileReader As String
@@ -96,80 +97,83 @@ Public Class Form1
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
         Dim count As Integer = 0
-        For i = 0 To 4
+        For i = 0 To 7
             count += 1
             level(count) = TreeView2.Nodes(0).Nodes(i).Text
         Next
 
 
-        Debug.Print(player.last)
+            Me.picDownLeft.Left = Me.Width - 200
+            Me.picDownLeft.Top = 100
+            Me.picDownRight.Left = Me.Width - 330
+            Me.picDownRight.Top = 100
+            Me.picUpLeft.Left = Me.Width - 200
+            Me.picUpLeft.Top = 200
+            Me.picUpRight.Left = Me.Width - 330
+            Me.picUpRight.Top = 200
+            Me.picTile.Top = 150
+            Me.picTile.Left = Me.Width - 265
 
-        Me.picDownLeft.Left = Me.Width - 200
-        Me.picDownLeft.Top = 100
-        Me.picDownRight.Left = Me.Width - 330
-        Me.picDownRight.Top = 100
-        Me.picUpLeft.Left = Me.Width - 200
-        Me.picUpLeft.Top = 200
-        Me.picUpRight.Left = Me.Width - 330
-        Me.picUpRight.Top = 200
-        Me.picTile.Top = 150
-        Me.picTile.Left = Me.Width - 265
+            playerPosX(1) = 1
+            playerPosY(1) = 1
+            playerPosX(2) = 6
+            playerPosY(2) = 2
+            playerPosX(3) = 1
+            playerPosY(3) = 1
+            playerPosX(4) = 3
+            playerPosY(4) = 3
+            playerPosX(5) = 4
+            playerPosY(5) = 2
+        playerPosX(6) = 3
+        playerPosY(6) = 2
+        playerPosX(7) = 5
+        playerPosY(7) = 2
+        playerPosX(8) = 4
+        playerPosY(8) = 4
 
-        playerPosX(1) = 1
-        playerPosY(1) = 1
-        playerPosX(2) = 6
-        playerPosY(2) = 2
-        playerPosX(3) = 1
-        playerPosY(3) = 1
-        playerPosX(4) = 3
-        playerPosY(4) = 3
-        playerPosX(5) = 4
-        playerPosY(5) = 2
+            Me.TreeView1.Top = Me.Height - 175
+            Me.TreeView2.Top = Me.Height - 275
+            Me.lblEdit.Top = Me.Height - 125
+            If levelEditor = True Then
+                TreeView1.Visible = True
+                TreeView1.Enabled = True
+                TreeView2.Visible = True
+                TreeView2.Enabled = True
+                Me.lblEdit.Visible = True
+                Me.lblEdit.Enabled = True
+            Else
+                TreeView1.Visible = False
+                TreeView1.Enabled = False
+                TreeView2.Visible = False
+                TreeView2.Enabled = False
+                Me.lblEdit.Visible = False
+                Me.lblEdit.Enabled = False
+            End If
+            Me.lblEditor.Text = levelEditor
+            Panel1.Width = Me.Width
+            Panel1.Height = Me.Height
 
-        Me.TreeView1.Top = Me.Height - 175
-        Me.TreeView2.Top = Me.Height - 275
-        Me.lblEdit.Top = Me.Height - 125
-        If levelEditor = True Then
-            player.ball.Visible = False
-            TreeView1.Visible = True
-            TreeView1.Enabled = True
-            TreeView2.Visible = True
-            TreeView2.Enabled = True
-            Me.lblEdit.Visible = True
-            Me.lblEdit.Enabled = True
-        Else
-            player.ball.Visible = True
-            TreeView1.Visible = False
-            TreeView1.Enabled = False
-            TreeView2.Visible = False
-            TreeView2.Enabled = False
-            Me.lblEdit.Visible = False
-            Me.lblEdit.Enabled = False
-        End If
-        Me.lblEditor.Text = levelEditor
-        Panel1.Width = Me.Width
-        Panel1.Height = Me.Height
-
-        Me.BackColor = Color.FromArgb(31, 218, 175)
-        For i = 0 To 9
-            For c = 0 To 9
-                grid(i, c).display()
+            Me.BackColor = Color.FromArgb(31, 218, 175)
+            For i = 0 To 9
+                For c = 0 To 9
+                    grid(i, c).display()
+                Next
             Next
-        Next
-        selectTile()
+            selectTile()
         mousePos()
+        colorKey()
 
     End Sub
 
     Public Sub selectTile()
         If picDownLeft.Bounds.Contains(PointToClient(MousePosition)) Then
-            mouseImg = "DownLeft.png"
+            mouseImg = "DownLeft_" & colorStat & ".png"
         ElseIf picDownRight.Bounds.Contains(PointToClient(MousePosition)) Then
-            mouseImg = "DownRight.png"
+            mouseImg = "DownRight_" & colorStat & ".png"
         ElseIf picUpLeft.Bounds.Contains(PointToClient(MousePosition)) Then
-            mouseImg = "UpLeft.png"
+            mouseImg = "UpLeft_" & colorStat & ".png"
         ElseIf picUpRight.Bounds.Contains(PointToClient(MousePosition)) Then
-            mouseImg = "UpRight.png"
+            mouseImg = "UpRight_" & colorStat & ".png"
         ElseIf picTile.Bounds.Contains(PointToClient(MousePosition)) Then
             mouseImg = "block.png"
         End If
@@ -183,6 +187,28 @@ Public Class Form1
         player.y += (700 / 4)
         player.locX = playerPosX(num)
         player.locY = playerPosY(num)
+        For i = 0 To 9
+            For c = 0 To 9
+                'If i = 1 And c = 7 Then
+                '    grid(i, c) = New Tile(i, c, "Hole.png")
+                '    grid(i, c).setup()
+                '    Panel1.Controls.Add(grid(i, c).tile)
+                'Else
+                grid(i, c).img = reader.ReadLine
+            Next
+        Next
+        restartLevel = False
+
+    End Sub
+
+    Public Sub refresh()
+        Dim reader As New StreamReader("Blank.txt")
+        player.x = playerPosX(3) * 60
+        player.y = playerPosY(4) * 60
+        player.x += (700 / 2)
+        player.y += (700 / 4)
+        player.locX = playerPosX(3)
+        player.locY = playerPosY(4)
         For i = 0 To 9
             For c = 0 To 9
                 'If i = 1 And c = 7 Then
@@ -215,6 +241,16 @@ Public Class Form1
             End If
         End If
         'MessageBox.Show(TreeView1.SelectedNode.ToString)
+    End Sub
+
+    Public Sub colorKey()
+        If player.current = "Tile_0_Blue.png" Then
+            colorStat = "Blue"
+            player.ball.Image = Image.FromFile("Ball_0_" & colorStat & ".png")
+        ElseIf player.current = "Tile_0_Purple.png" Then
+            colorStat = "Purple"
+            player.ball.Image = Image.FromFile("Ball_0_" & colorStat & ".png")
+        End If
     End Sub
 
     Public Class Ball
@@ -261,75 +297,164 @@ Public Class Form1
                 Form1.restartLevel = False
                 ball.Top = y - 2
                 ball.Left = x
-                If down = "arrowDown.png" And locY + 1 < 9 Then
-                    lastTile = "Up"
-                    last = "Down"
-                    y += 69
-                    locY += 1
-                ElseIf down = "UpRight.png" And lastTile <> "Down" And locY + 1 < 9 Then
-                    lastTile = "Up"
-                    last = "Right"
-                    y += 60
-                    locY += 1
-                ElseIf down = "UpLeft.png" And lastTile <> "Down" And locY + 1 < 9 Then
-                    lastTile = "Up"
-                    last = "Left"
-                    y += 60
-                    locY += 1
-                ElseIf up = "DownRight.png" And lastTile <> "Up" And locY - 1 < 9 Then
-                    last = "Right"
-                    lastTile = "Down"
-                    y -= 60
-                    locY -= 1
-                ElseIf up = "DownLeft.png" And lastTile <> "Up" And locY - 1 < 9 Then
-                    last = "Left"
-                    lastTile = "Down"
-                    y -= 60
-                    locY -= 1
-                ElseIf left = "UpRight.png" And lastTile <> "Left" And locX - 1 > 0 Then
-                    last = "Up"
-                    lastTile = "Right"
-                    x -= 60
-                    locX -= 1
-                ElseIf left = "DownRight.png" And lastTile <> "Left" And locX - 1 > 0 Then
-                    last = "Down"
-                    lastTile = "Right"
-                    x -= 60
-                    locX -= 1
-                ElseIf right = "DownLeft.png" And lastTile <> "Right" And locX + 1 < 9 Then
-                    last = "Down"
-                    lastTile = "Left"
-                    x += 60
-                    locX += 1
-                ElseIf right = "UpLeft.png" And lastTile <> "Right" And locX + 1 < 9 Then
-                    last = "Up"
-                    lastTile = "Left"
-                    x += 60
-                    locX += 1
-                ElseIf right = "block.png" Then
-                    If last = "Right" Then
+                If Form1.colorStat = "Purple" Then
+                    If down = "arrowDown.png" And locY + 1 < 9 Then
+                        lastTile = "Up"
+                        last = "Down"
+                        y += 69
+                        locY += 1
+                    ElseIf down = "UpRight_Purple.png" And lastTile <> "Down" And locY + 1 < 9 Then
+                        lastTile = "Up"
+                        last = "Right"
+                        y += 60
+                        locY += 1
+                    ElseIf down = "UpLeft_Purple.png" And lastTile <> "Down" And locY + 1 < 9 Then
+                        lastTile = "Up"
+                        last = "Left"
+                        y += 60
+                        locY += 1
+                    ElseIf up = "DownRight_Purple.png" And lastTile <> "Up" And locY - 1 < 9 Then
+                        last = "Right"
+                        lastTile = "Down"
+                        y -= 60
+                        locY -= 1
+                    ElseIf up = "DownLeft_Purple.png" And lastTile <> "Up" And locY - 1 < 9 Then
+                        last = "Left"
+                        lastTile = "Down"
+                        y -= 60
+                        locY -= 1
+                    ElseIf left = "UpRight_Purple.png" And lastTile <> "Left" And locX - 1 > 0 Then
+                        last = "Up"
+                        lastTile = "Right"
+                        x -= 60
+                        locX -= 1
+                    ElseIf left = "DownRight_Purple.png" And lastTile <> "Left" And locX - 1 > 0 Then
+                        last = "Down"
+                        lastTile = "Right"
+                        x -= 60
+                        locX -= 1
+                    ElseIf right = "DownLeft_Purple.png" And lastTile <> "Right" And locX + 1 < 9 Then
+                        last = "Down"
+                        lastTile = "Left"
+                        x += 60
+                        locX += 1
+                    ElseIf right = "UpLeft_Purple.png" And lastTile <> "Right" And locX + 1 < 9 Then
+                        last = "Up"
+                        lastTile = "Left"
+                        x += 60
+                        locX += 1
+                    ElseIf last = "Up" And locY - 1 > 0 Then
+                        lastTile = "Down"
+                        y -= 60
+                        locY -= 1
+                    ElseIf last = "Down" And locY + 1 < 9 Then
+                        lastTile = "Up"
+                        y += 60
+                        locY += 1
+                    ElseIf last = "Right" And locX + 1 < 9 Then
+                        lastTile = "Left"
+                        x += 60
+                        locX += 1
+                    ElseIf last = "Left" And locX - 1 > 0 Then
                         lastTile = "Right"
                         x -= 60
                         locX -= 1
                     End If
-                ElseIf last = "Up" And locY - 1 > 0 Then
-                    lastTile = "Down"
-                    y -= 60
-                    locY -= 1
-                ElseIf last = "Down" And locY + 1 < 9 Then
-                    lastTile = "Up"
-                    y += 60
-                    locY += 1
-                ElseIf last = "Right" And locX + 1 < 9 Then
-                    lastTile = "Left"
-                    x += 60
-                    locX += 1
-                ElseIf last = "Left" And locX - 1 > 0 Then
-                    lastTile = "Right"
-                    x -= 60
-                    locX -= 1
                 End If
 
+                If Form1.colorStat = "Blue" Then
+                    If down = "arrowDown.png" And locY + 1 < 9 Then
+                        lastTile = "Up"
+                        last = "Down"
+                        y += 69
+                        locY += 1
+                    ElseIf down = "UpRight_Blue.png" And lastTile <> "Down" And locY + 1 < 9 Then
+                        lastTile = "Up"
+                        last = "Right"
+                        y += 60
+                        locY += 1
+                    ElseIf down = "UpLeft_Blue.png" And lastTile <> "Down" And locY + 1 < 9 Then
+                        lastTile = "Up"
+                        last = "Left"
+                        y += 60
+                        locY += 1
+                    ElseIf up = "DownRight_Blue.png" And lastTile <> "Up" And locY - 1 < 9 Then
+                        last = "Right"
+                        lastTile = "Down"
+                        y -= 60
+                        locY -= 1
+                    ElseIf up = "DownLeft_Blue.png" And lastTile <> "Up" And locY - 1 < 9 Then
+                        last = "Left"
+                        lastTile = "Down"
+                        y -= 60
+                        locY -= 1
+                    ElseIf left = "UpRight_Blue.png" And lastTile <> "Left" And locX - 1 > 0 Then
+                        last = "Up"
+                        lastTile = "Right"
+                        x -= 60
+                        locX -= 1
+                    ElseIf left = "DownRight_Blue.png" And lastTile <> "Left" And locX - 1 > 0 Then
+                        last = "Down"
+                        lastTile = "Right"
+                        x -= 60
+                        locX -= 1
+                    ElseIf right = "DownLeft_Blue.png" And lastTile <> "Right" And locX + 1 < 9 Then
+                        last = "Down"
+                        lastTile = "Left"
+                        x += 60
+                        locX += 1
+                    ElseIf right = "UpLeft_Blue.png" And lastTile <> "Right" And locX + 1 < 9 Then
+                        last = "Up"
+                        lastTile = "Left"
+                        x += 60
+                        locX += 1
+                    ElseIf last = "Up" And locY - 1 > 0 Then
+                        lastTile = "Down"
+                        y -= 60
+                        locY -= 1
+                    ElseIf last = "Down" And locY + 1 < 9 Then
+                        lastTile = "Up"
+                        y += 60
+                        locY += 1
+                    ElseIf last = "Right" And locX + 1 < 9 Then
+                        lastTile = "Left"
+                        x += 60
+                        locX += 1
+                    ElseIf last = "Left" And locX - 1 > 0 Then
+                        lastTile = "Right"
+                        x -= 60
+                        locX -= 1
+                    End If
+                End If
+                If right = "block.png" Then
+                    If last = "Right" Then
+                        lastTile = "Left"
+                        last = "Left"
+                        x -= 60
+                        locX -= 1
+                    End If
+                ElseIf up = "block.png" Then
+                    If last = "Up" Then
+                        lastTile = "Down"
+                        last = "Down"
+                        y += 60
+                        locY += 1
+                    End If
+                ElseIf left = "block.png" Then
+                    If last = "Left" Then
+                        lastTile = "Rights"
+                        last = "Right"
+                        x += 60
+                        locX += 1
+                    End If
+                ElseIf down = "block.png" Then
+                    If last = "Down" Then
+                        lastTile = "Up"
+                        last = "Up"
+                        y -= 60
+                        locY -= 1
+                    End If
+                End If
 
                 If current = "Check.jpg" Then
                     key = ""
@@ -416,7 +541,7 @@ Public Class Form1
     End Sub
 
     Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
-        restart(2)
+        refresh()
     End Sub
 
     Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
