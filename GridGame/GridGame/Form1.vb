@@ -28,9 +28,9 @@ Public Class Form1
             End If
         End If
         If e.KeyValue = Keys.D1 Then
-            restart(7)
+            restart(1)
             restartLevel = True
-            num = 4
+            num = 2
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load

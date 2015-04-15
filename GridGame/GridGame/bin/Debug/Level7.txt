@@ -51,8 +51,8 @@ Tile_1.png
 Tile_0.png
 Hole.png
 Tile_0.png
-Tile_0_Blue.png
 Tile_0.png
+Tile_0_Blue.png
 DownRight_Blue.png
 Tile_0.png
 Tile_0.png
