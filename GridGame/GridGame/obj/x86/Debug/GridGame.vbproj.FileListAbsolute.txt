@@ -33,7 +33,6 @@ C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.Resour
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.vbproj.GenerateResource.Cache
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.exe.manifest
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.application
-<<<<<<< HEAD
 C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.exe
 C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.xml
 C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.pdb
@@ -51,4 +50,3 @@ C:\Users\ASE\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.application
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\bin\Debug\af-ZA\GridGame.resources.dll
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.Form1.af-ZA.resources
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\af-ZA\GridGame.resources.dll
->>>>>>> origin/master

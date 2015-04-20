@@ -41,16 +41,13 @@ Partial Class Form1
         Me.Level4ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.TreeView2 = New System.Windows.Forms.TreeView()
-        Me.picDownLeft = New System.Windows.Forms.PictureBox()
-        Me.picDownRight = New System.Windows.Forms.PictureBox()
-        Me.picUpRight = New System.Windows.Forms.PictureBox()
-        Me.picUpLeft = New System.Windows.Forms.PictureBox()
         Me.picTile = New System.Windows.Forms.PictureBox()
+        Me.picDownRight = New System.Windows.Forms.Label()
+        Me.picUpRight = New System.Windows.Forms.Label()
+        Me.picDownLeft = New System.Windows.Forms.Label()
+        Me.picUpLeft = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1.SuspendLayout()
-        CType(Me.picDownLeft, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picDownRight, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picUpRight, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picUpLeft, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picTile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -67,7 +64,7 @@ Partial Class Form1
         'tmrMove
         '
         Me.tmrMove.Enabled = True
-        Me.tmrMove.Interval = 125
+        Me.tmrMove.Interval = 75
         '
         'Label1
         '
@@ -151,46 +148,48 @@ Partial Class Form1
         Me.TreeView2.Name = "TreeView2"
         Me.TreeView2.Nodes.AddRange(New System.Windows.Forms.TreeNode() {CType(resources.GetObject("TreeView2.Nodes"), System.Windows.Forms.TreeNode)})
         '
-        'picDownLeft
-        '
-        resources.ApplyResources(Me.picDownLeft, "picDownLeft")
-        Me.picDownLeft.Name = "picDownLeft"
-        Me.picDownLeft.TabStop = False
-        '
-        'picDownRight
-        '
-        resources.ApplyResources(Me.picDownRight, "picDownRight")
-        Me.picDownRight.Name = "picDownRight"
-        Me.picDownRight.TabStop = False
-        '
-        'picUpRight
-        '
-        resources.ApplyResources(Me.picUpRight, "picUpRight")
-        Me.picUpRight.Name = "picUpRight"
-        Me.picUpRight.TabStop = False
-        '
-        'picUpLeft
-        '
-        resources.ApplyResources(Me.picUpLeft, "picUpLeft")
-        Me.picUpLeft.Name = "picUpLeft"
-        Me.picUpLeft.TabStop = False
-        '
         'picTile
         '
         resources.ApplyResources(Me.picTile, "picTile")
         Me.picTile.Name = "picTile"
         Me.picTile.TabStop = False
         '
+        'picDownRight
+        '
+        resources.ApplyResources(Me.picDownRight, "picDownRight")
+        Me.picDownRight.Name = "picDownRight"
+        '
+        'picUpRight
+        '
+        resources.ApplyResources(Me.picUpRight, "picUpRight")
+        Me.picUpRight.Name = "picUpRight"
+        '
+        'picDownLeft
+        '
+        resources.ApplyResources(Me.picDownLeft, "picDownLeft")
+        Me.picDownLeft.Name = "picDownLeft"
+        '
+        'picUpLeft
+        '
+        resources.ApplyResources(Me.picUpLeft, "picUpLeft")
+        Me.picUpLeft.Name = "picUpLeft"
+        '
+        'PictureBox1
+        '
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
+        Me.PictureBox1.Name = "PictureBox1"
+        '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Aquamarine
-        Me.Controls.Add(Me.picTile)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.picUpLeft)
-        Me.Controls.Add(Me.picUpRight)
         Me.Controls.Add(Me.picDownLeft)
+        Me.Controls.Add(Me.picUpRight)
         Me.Controls.Add(Me.picDownRight)
+        Me.Controls.Add(Me.picTile)
         Me.Controls.Add(Me.TreeView2)
         Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.lblEdit)
@@ -201,10 +200,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Panel1)
         Me.Name = "Form1"
         Me.ContextMenuStrip1.ResumeLayout(False)
-        CType(Me.picDownLeft, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picDownRight, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picUpRight, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picUpLeft, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picTile, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -227,10 +222,11 @@ Partial Class Form1
     Friend WithEvents Level4ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
     Friend WithEvents TreeView2 As System.Windows.Forms.TreeView
-    Friend WithEvents picDownLeft As System.Windows.Forms.PictureBox
-    Friend WithEvents picDownRight As System.Windows.Forms.PictureBox
-    Friend WithEvents picUpRight As System.Windows.Forms.PictureBox
-    Friend WithEvents picUpLeft As System.Windows.Forms.PictureBox
     Friend WithEvents picTile As System.Windows.Forms.PictureBox
+    Friend WithEvents picDownRight As System.Windows.Forms.Label
+    Friend WithEvents picUpRight As System.Windows.Forms.Label
+    Friend WithEvents picDownLeft As System.Windows.Forms.Label
+    Friend WithEvents picUpLeft As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.Label
 
 End Class
