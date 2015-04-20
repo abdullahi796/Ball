@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Panel1.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <metadata name="tmrMove.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>108, 15</value>
@@ -165,7 +165,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <metadata name="tmrUI.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>216, 17</value>
@@ -217,7 +217,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="Label2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -280,7 +280,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="lblEditor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -307,7 +307,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblEditor.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="lblEdit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 14.25pt</value>
@@ -345,7 +345,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblEdit.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <metadata name="ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>298, 17</value>
@@ -502,7 +502,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TreeView1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="TreeView2.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 436</value>
@@ -575,7 +575,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TreeView2.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="picTile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -611,7 +611,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picTile.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="picDownRight.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -642,7 +642,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picDownRight.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="picUpRight.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -676,7 +676,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picUpRight.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="picDownLeft.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -710,7 +710,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picDownLeft.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="picUpLeft.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -744,50 +744,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picUpLeft.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMcSURBVGhD7c+xcd0wEARQV+A2XKbrcweqw5Gy71nPnAaC
-        HkiCBL8CKXgR9nC3P15eXh5fyf/Cr6+vt3v8/bFJM6vdVliFztDfVywtrINX0s5ZSwrruDvphqMuF9ZB
-        z6BbjjhdWEfs0T89zW3RH1tOFdZi0ewM/SmaHZkurIU9zV2hHT3NyVRhLWppZiXtbGmmd7iwFhTl76Qb
-        ivKtQ4X1cVF+y+PPz02aEd1SlC+7hfVhUV5UbI/+6emmonxsFtZHRfmeiszSvy3dVpQ/VVjZlg6/SnuK
-        bix9dlhYw9Hnejp2Fe0rujX6HAtrMNqM6Mie5oryPc0V3RxtZllhHdfSzIjmW5oJ3Rxt5kNhDUQ7JDos
-        lD1K/xXlQ7dHvS8prINC2Vn6N5QN3R71fqhwvYmOCWXP0v+hbGx1eFdYwaiw6JBQ9oqZHeoQedst3H7U
-        0xGhbOvx+9cHyrW0J5SNUZflhZVrqWxLM2Vm36jLUwuroGg2ZvaNupwurOWhbKjYiOZD+0LZUJ+3wnrU
-        J2VqMUrt0T8xtRedPq3wzHtrai86fRdu6ZMytXin0N57a2ovOn1a4T36J6b2otNTCodKjWi+zOxVp+/C
-        LX1StDiULSrX01zRvlA21OmtsAL9B72Z5a3ZomV2X98nNgtH/0lr9oCrZvaNuiwvHMpepT2hbIy6XCoc
-        OiKUvWJ2x6jLbuFoP+rpkFD2LP0fyoY6RN7eFR6F621Ex4Sys/RvKFu2OhwqHPU+oqNC2aP0X1G+bN1/
-        e+GimRHNtzRTdHvU+4fCR4ZGdFxPc0X5nuaKbo42s7Rw6MhVtK+lm6PNsHBoMPqc6NirtKelW6PPDQuH
-        PghlRYfP0r893Vj67KnCofyIihyhv3q6rSi/WTj0UVF+j4q1NDOim4rysVs49GFR/hl0S1G+HCoc+rgo
-        fyfdUJRvLSlcNLeSdvY01zpcuGhJT3NXaU9LMzJdOLRQNDtDf4pmR04VDi3eoj9Es1v0x5bThUMHPJNu
-        2nOpcNExd9INRy0pXHTcSto5a2nhlg4+Q39fcVvhnsqIZld6K/x1vDz+AYwJuf+OdJ3BAAAAAElFTkSu
-        QmCC
-</value>
-  </data>
-  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 364</value>
-  </data>
-  <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 57</value>
-  </data>
-  <data name="PictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
-    <value>PictureBox1</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

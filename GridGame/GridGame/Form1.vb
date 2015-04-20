@@ -13,11 +13,11 @@ Public Class Form1
     Dim pic2 As Boolean = False
     Dim pic3 As Boolean = False
     Dim levelEditor As Boolean = False
-    Dim level(8) As String
+    Dim level(9) As String
     Dim num As Integer
     Dim colorStat As String = "Purple"
-    Dim playerPosX(8) As Integer
-    Dim playerPosY(8) As Integer
+    Dim playerPosX(9) As Integer
+    Dim playerPosY(9) As Integer
     Dim restartLevel As Boolean
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Space And levelEditor = False Then
@@ -28,9 +28,9 @@ Public Class Form1
             End If
         End If
         If e.KeyValue = Keys.D1 Then
-            restart(1)
+            restart(9)
             restartLevel = True
-            num = 2
+            num = 7
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -62,9 +62,6 @@ Public Class Form1
                 End If
             Next
         Next
-        restart(3)
-        restartLevel = True
-        num = 1
     End Sub
 
 
@@ -97,89 +94,97 @@ Public Class Form1
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
         Dim count As Integer = 0
-        For i = 0 To 7
+        For i = 0 To 8
             count += 1
             level(count) = TreeView2.Nodes(0).Nodes(i).Text
         Next
 
 
-            Me.picDownLeft.Left = Me.Width - 200
-            Me.picDownLeft.Top = 100
-            Me.picDownRight.Left = Me.Width - 330
-            Me.picDownRight.Top = 100
-            Me.picUpLeft.Left = Me.Width - 200
-            Me.picUpLeft.Top = 200
-            Me.picUpRight.Left = Me.Width - 330
-            Me.picUpRight.Top = 200
-            Me.picTile.Top = 150
-            Me.picTile.Left = Me.Width - 265
+        Me.picDownLeft.Left = Me.Width - 200
+        Me.picDownLeft.Top = 100
+        Me.picDownRight.Left = Me.Width - 330
+        Me.picDownRight.Top = 100
+        Me.picUpLeft.Left = Me.Width - 200
+        Me.picUpLeft.Top = 200
+        Me.picUpRight.Left = Me.Width - 330
+        Me.picUpRight.Top = 200
+        Me.picTile.Top = 150
+        Me.picTile.Left = Me.Width - 265
 
-            playerPosX(1) = 1
-            playerPosY(1) = 1
-            playerPosX(2) = 6
-            playerPosY(2) = 2
-            playerPosX(3) = 1
-            playerPosY(3) = 1
-            playerPosX(4) = 3
-            playerPosY(4) = 3
-            playerPosX(5) = 4
-            playerPosY(5) = 2
+        playerPosX(1) = 1
+        playerPosY(1) = 1
+        playerPosX(2) = 6
+        playerPosY(2) = 2
+        playerPosX(3) = 1
+        playerPosY(3) = 1
+        playerPosX(4) = 3
+        playerPosY(4) = 3
+        playerPosX(5) = 3
+        playerPosY(5) = 2
         playerPosX(6) = 3
         playerPosY(6) = 2
         playerPosX(7) = 5
         playerPosY(7) = 2
         playerPosX(8) = 4
         playerPosY(8) = 4
+        playerPosX(9) = 6
+        playerPosY(9) = 5
 
-            Me.TreeView1.Top = Me.Height - 175
-            Me.TreeView2.Top = Me.Height - 275
-            Me.lblEdit.Top = Me.Height - 125
-            If levelEditor = True Then
-                TreeView1.Visible = True
-                TreeView1.Enabled = True
-                TreeView2.Visible = True
-                TreeView2.Enabled = True
-                Me.lblEdit.Visible = True
-                Me.lblEdit.Enabled = True
-            Else
-                TreeView1.Visible = False
-                TreeView1.Enabled = False
-                TreeView2.Visible = False
-                TreeView2.Enabled = False
-                Me.lblEdit.Visible = False
-                Me.lblEdit.Enabled = False
-            End If
-            Me.lblEditor.Text = levelEditor
-            Panel1.Width = Me.Width
-            Panel1.Height = Me.Height
+        Me.TreeView1.Top = Me.Height - 175
+        Me.TreeView2.Top = Me.Height - 275
+        Me.lblEdit.Top = Me.Height - 125
+        If levelEditor = True Then
+            TreeView1.Visible = True
+            TreeView1.Enabled = True
+            TreeView2.Visible = True
+            TreeView2.Enabled = True
+            Me.lblEdit.Visible = True
+            Me.lblEdit.Enabled = True
+        Else
+            TreeView1.Visible = False
+            TreeView1.Enabled = False
+            TreeView2.Visible = False
+            TreeView2.Enabled = False
+            Me.lblEdit.Visible = False
+            Me.lblEdit.Enabled = False
+        End If
+        Me.lblEditor.Text = levelEditor
+        Panel1.Width = Me.Width
+        Panel1.Height = Me.Height
 
-            Me.BackColor = Color.FromArgb(31, 218, 175)
-            For i = 0 To 9
-                For c = 0 To 9
-                    grid(i, c).display()
-                Next
+        Me.BackColor = Color.FromArgb(31, 218, 175)
+        For i = 0 To 9
+            For c = 0 To 9
+                grid(i, c).display()
             Next
-            selectTile()
+        Next
+        selectTile()
         mousePos()
         colorKey()
 
     End Sub
 
     Public Sub selectTile()
-        If picDownLeft.Bounds.Contains(PointToClient(MousePosition)) Then
+        If picDownLeft.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
             mouseImg = "DownLeft_" & colorStat & ".png"
-        ElseIf picDownRight.Bounds.Contains(PointToClient(MousePosition)) Then
+        ElseIf picDownRight.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
             mouseImg = "DownRight_" & colorStat & ".png"
-        ElseIf picUpLeft.Bounds.Contains(PointToClient(MousePosition)) Then
+        ElseIf picUpLeft.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
             mouseImg = "UpLeft_" & colorStat & ".png"
-        ElseIf picUpRight.Bounds.Contains(PointToClient(MousePosition)) Then
+        ElseIf picUpRight.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
             mouseImg = "UpRight_" & colorStat & ".png"
-        ElseIf picTile.Bounds.Contains(PointToClient(MousePosition)) Then
+        ElseIf picTile.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
             mouseImg = "block.png"
         End If
+        Me.picDownLeft.Image = Image.FromFile("DownLeft_" & colorStat & ".png")
+        Me.picDownRight.Image = Image.FromFile("DownRight_" & colorStat & ".png")
+        Me.picUpRight.Image = Image.FromFile("UpRight_" & colorStat & ".png")
+        Me.picUpLeft.Image = Image.FromFile("UpLeft_" & colorStat & ".png")
     End Sub
 
     Public Sub restart(ByVal num As String)
+        colorStat = "Purple"
+        player.ball.Image = Image.FromFile("Ball_0_" & colorStat & ".png")
         Dim reader As New StreamReader(level(num) & ".txt")
         player.x = playerPosX(num) * 60
         player.y = playerPosY(num) * 60

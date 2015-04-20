@@ -46,7 +46,6 @@ Partial Class Form1
         Me.picUpRight = New System.Windows.Forms.Label()
         Me.picDownLeft = New System.Windows.Forms.Label()
         Me.picUpLeft = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.picTile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -174,17 +173,11 @@ Partial Class Form1
         resources.ApplyResources(Me.picUpLeft, "picUpLeft")
         Me.picUpLeft.Name = "picUpLeft"
         '
-        'PictureBox1
-        '
-        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
-        Me.PictureBox1.Name = "PictureBox1"
-        '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Aquamarine
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.picUpLeft)
         Me.Controls.Add(Me.picDownLeft)
         Me.Controls.Add(Me.picUpRight)
@@ -227,6 +220,5 @@ Partial Class Form1
     Friend WithEvents picUpRight As System.Windows.Forms.Label
     Friend WithEvents picDownLeft As System.Windows.Forms.Label
     Friend WithEvents picUpLeft As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.Label
 
 End Class
