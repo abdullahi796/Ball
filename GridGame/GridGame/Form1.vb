@@ -13,11 +13,11 @@ Public Class Form1
     Dim pic2 As Boolean = False
     Dim pic3 As Boolean = False
     Dim levelEditor As Boolean = False
-    Dim level(9) As String
+    Dim level(11) As String
     Dim num As Integer
     Dim colorStat As String = "Purple"
-    Dim playerPosX(9) As Integer
-    Dim playerPosY(9) As Integer
+    Dim playerPosX(11) As Integer
+    Dim playerPosY(11) As Integer
     Dim restartLevel As Boolean
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Space And levelEditor = False Then
@@ -28,9 +28,12 @@ Public Class Form1
             End If
         End If
         If e.KeyValue = Keys.D1 Then
-            restart(9)
+            restart(1)
             restartLevel = True
-            num = 7
+            num = 2
+        End If
+        If e.KeyValue = Keys.D2 Then
+            exportLevel()
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -38,7 +41,7 @@ Public Class Form1
         Panel1.Height = Me.Height
         Panel1.Left = 0
         Panel1.Top = 0
-        player = New Ball(3, 2, "Ball_0_" & colorStat & ".png")
+        player = New Ball(7, 4, "Ball_0_" & colorStat & ".png")
         player.setup()
         Panel1.Controls.Add(player.ball)
         Dim tileReader As String
@@ -94,7 +97,7 @@ Public Class Form1
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
         Dim count As Integer = 0
-        For i = 0 To 8
+        For i = 0 To 10
             count += 1
             level(count) = TreeView2.Nodes(0).Nodes(i).Text
         Next
@@ -110,6 +113,15 @@ Public Class Form1
         Me.picUpRight.Top = 200
         Me.picTile.Top = 150
         Me.picTile.Left = Me.Width - 265
+
+        Me.Label4.Left = Me.Width - 200
+        Me.Label4.Top = 400
+        Me.Label5.Left = Me.Width - 330
+        Me.Label5.Top = 400
+        Me.Label6.Left = Me.Width - 200
+        Me.Label6.Top = 500
+        Me.Label7.Left = Me.Width - 330
+        Me.Label7.Top = 500
 
         playerPosX(1) = 1
         playerPosY(1) = 1
@@ -129,6 +141,10 @@ Public Class Form1
         playerPosY(8) = 4
         playerPosX(9) = 6
         playerPosY(9) = 5
+        playerPosX(10) = 2
+        playerPosY(10) = 3
+        playerPosX(11) = 2
+        playerPosY(11) = 2
 
         Me.TreeView1.Top = Me.Height - 175
         Me.TreeView2.Top = Me.Height - 275
@@ -166,20 +182,24 @@ Public Class Form1
 
     Public Sub selectTile()
         If picDownLeft.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
-            mouseImg = "DownLeft_" & colorStat & ".png"
+            mouseImg = "DownLeft_Purple.png"
         ElseIf picDownRight.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
-            mouseImg = "DownRight_" & colorStat & ".png"
+            mouseImg = "DownRight_Purple.png"
         ElseIf picUpLeft.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
-            mouseImg = "UpLeft_" & colorStat & ".png"
+            mouseImg = "UpLeft_Purple.png"
         ElseIf picUpRight.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
-            mouseImg = "UpRight_" & colorStat & ".png"
+            mouseImg = "UpRight_Purple.png"
         ElseIf picTile.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
             mouseImg = "block.png"
+        ElseIf Label5.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
+            mouseImg = "DownLeft_Blue.png"
+        ElseIf Label7.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
+            mouseImg = "DownRight_Blue.png"
+        ElseIf Label6.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
+            mouseImg = "UpRight_Blue.png"
+        ElseIf Label4.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
+            mouseImg = "UpLeft_Blue.png"
         End If
-        Me.picDownLeft.Image = Image.FromFile("DownLeft_" & colorStat & ".png")
-        Me.picDownRight.Image = Image.FromFile("DownRight_" & colorStat & ".png")
-        Me.picUpRight.Image = Image.FromFile("UpRight_" & colorStat & ".png")
-        Me.picUpLeft.Image = Image.FromFile("UpLeft_" & colorStat & ".png")
     End Sub
 
     Public Sub restart(ByVal num As String)
@@ -248,6 +268,25 @@ Public Class Form1
         'MessageBox.Show(TreeView1.SelectedNode.ToString)
     End Sub
 
+    Public Sub exportLevel()
+        SaveFileDialog1.ShowDialog()
+        DialogResult = MessageBox.Show("This will Overwrite current work", "OverWrite", MessageBoxButtons.YesNo)
+        If (DialogResult = DialogResult.Yes And SaveFileDialog1.CheckPathExists) Then
+            Dim file As System.IO.StreamWriter
+            Try
+                file = My.Computer.FileSystem.OpenTextFileWriter(SaveFileDialog1.FileName & ".txt", False)
+                For i = 0 To 9
+                    For c = 0 To 9
+                        file.WriteLine(grid(i, c).img)
+                    Next
+                Next
+            Catch ex As Exception
+                MessageBox.Show(ex.Message)
+            End Try
+        End If
+        'MessageBox.Show(TreeView1.SelectedNode.ToString)
+    End Sub
+
     Public Sub colorKey()
         If player.current = "Tile_0_Blue.png" Then
             colorStat = "Blue"
@@ -308,6 +347,11 @@ Public Class Form1
                         last = "Down"
                         y += 69
                         locY += 1
+                    ElseIf up = "ArrowUp.png" And locY - 1 > 0 Then
+                        lastTile = "Down"
+                        last = "Up"
+                        y -= 60
+                        locY -= 1
                     ElseIf down = "UpRight_Purple.png" And lastTile <> "Down" And locY + 1 < 9 Then
                         lastTile = "Up"
                         last = "Right"

@@ -46,6 +46,11 @@ Partial Class Form1
         Me.picUpRight = New System.Windows.Forms.Label()
         Me.picDownLeft = New System.Windows.Forms.Label()
         Me.picUpLeft = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.picTile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -173,11 +178,35 @@ Partial Class Form1
         resources.ApplyResources(Me.picUpLeft, "picUpLeft")
         Me.picUpLeft.Name = "picUpLeft"
         '
+        'Label4
+        '
+        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.Name = "Label4"
+        '
+        'Label5
+        '
+        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.Name = "Label5"
+        '
+        'Label6
+        '
+        resources.ApplyResources(Me.Label6, "Label6")
+        Me.Label6.Name = "Label6"
+        '
+        'Label7
+        '
+        resources.ApplyResources(Me.Label7, "Label7")
+        Me.Label7.Name = "Label7"
+        '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Aquamarine
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.picUpLeft)
         Me.Controls.Add(Me.picDownLeft)
         Me.Controls.Add(Me.picUpRight)
@@ -191,6 +220,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
+        Me.DoubleBuffered = True
         Me.Name = "Form1"
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.picTile, System.ComponentModel.ISupportInitialize).EndInit()
@@ -220,5 +250,10 @@ Partial Class Form1
     Friend WithEvents picUpRight As System.Windows.Forms.Label
     Friend WithEvents picDownLeft As System.Windows.Forms.Label
     Friend WithEvents picUpLeft As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
 
 End Class
