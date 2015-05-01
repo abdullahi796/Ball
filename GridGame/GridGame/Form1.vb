@@ -28,12 +28,15 @@ Public Class Form1
             End If
         End If
         If e.KeyValue = Keys.D1 Then
-            restart(1)
+            restart(3)
             restartLevel = True
             num = 2
         End If
         If e.KeyValue = Keys.D2 Then
             exportLevel()
+        End If
+        If e.KeyValue = Keys.D3 Then
+            loadLevel()
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -80,7 +83,7 @@ Public Class Form1
 
         For i = 0 To 9
             For c = 0 To 9
-                If grid(i, c).tile.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left And grid(i, c).img = "Hole.png" Then
+                If grid(i, c).tile.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
                     Try
                         grid(i, c).img = mouseImg
                     Catch ex As Exception
@@ -127,8 +130,8 @@ Public Class Form1
         playerPosY(1) = 1
         playerPosX(2) = 6
         playerPosY(2) = 2
-        playerPosX(3) = 1
-        playerPosY(3) = 1
+        playerPosX(3) = 7
+        playerPosY(3) = 4
         playerPosX(4) = 3
         playerPosY(4) = 3
         playerPosX(5) = 3
@@ -223,7 +226,31 @@ Public Class Form1
             Next
         Next
         restartLevel = False
+    End Sub
 
+
+    Public Sub loadLevel()
+        colorStat = "Purple"
+        player.ball.Image = Image.FromFile("Ball_0_" & colorStat & ".png")
+        OpenFileDialog1.ShowDialog()
+        Dim reader As New StreamReader(OpenFileDialog1.FileName)
+        player.x = playerPosX(num) * 60
+        player.y = playerPosY(num) * 60
+        player.x += (700 / 2)
+        player.y += (700 / 4)
+        player.locX = playerPosX(num)
+        player.locY = playerPosY(num)
+        For i = 0 To 9
+            For c = 0 To 9
+                'If i = 1 And c = 7 Then
+                '    grid(i, c) = New Tile(i, c, "Hole.png")
+                '    grid(i, c).setup()
+                '    Panel1.Controls.Add(grid(i, c).tile)
+                'Else
+                grid(i, c).img = reader.ReadLine
+            Next
+        Next
+        restartLevel = False
     End Sub
 
     Public Sub refresh()

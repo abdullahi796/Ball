@@ -22,6 +22,6 @@ Public Class Tile
         tile.Height = 60
     End Sub
     Public Sub display()
-        tile.Image = Image.FromFile(img)
+3:      tile.Image = Image.FromFile(img)
     End Sub
 End Class

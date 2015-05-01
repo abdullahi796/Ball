@@ -51,6 +51,7 @@ Partial Class Form1
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.picTile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -198,6 +199,10 @@ Partial Class Form1
         resources.ApplyResources(Me.Label7, "Label7")
         Me.Label7.Name = "Label7"
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'Form1
         '
         resources.ApplyResources(Me, "$this")
@@ -255,5 +260,6 @@ Partial Class Form1
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
 
 End Class
