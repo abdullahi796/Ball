@@ -80,7 +80,7 @@ Public Class Form1
 
         For i = 0 To 9
             For c = 0 To 9
-                If grid(i, c).tile.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
+                If grid(i, c).tile.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left And grid(i, c).img = "Hole.png" Then
                     Try
                         grid(i, c).img = mouseImg
                     Catch ex As Exception
