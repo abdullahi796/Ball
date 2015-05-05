@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Panel1.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <metadata name="tmrMove.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>108, 15</value>
@@ -165,7 +165,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <metadata name="tmrUI.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>216, 17</value>
@@ -204,9 +204,6 @@
   <data name="Label3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="Label3.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;Label3.Name" xml:space="preserve">
     <value>Label3</value>
   </data>
@@ -217,7 +214,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="Label2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -267,9 +264,6 @@
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="Label2.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;Label2.Name" xml:space="preserve">
     <value>Label2</value>
   </data>
@@ -280,7 +274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="lblEditor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -307,7 +301,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblEditor.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="lblEdit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 14.25pt</value>
@@ -345,11 +339,26 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblEdit.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <metadata name="ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>298, 17</value>
   </metadata>
+  <data name="ContextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 26</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuStrip1.Name" xml:space="preserve">
+    <value>ContextMenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 22</value>
+  </data>
+  <data name="ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>level</value>
+  </data>
   <data name="Level1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 22</value>
   </data>
@@ -373,21 +382,6 @@
   </data>
   <data name="Level4ToolStripMenuItem.Text" xml:space="preserve">
     <value>level4</value>
-  </data>
-  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 22</value>
-  </data>
-  <data name="ToolStripMenuItem1.Text" xml:space="preserve">
-    <value>level</value>
-  </data>
-  <data name="ContextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 26</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuStrip1.Name" xml:space="preserve">
-    <value>ContextMenuStrip1</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TreeView1.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 539</value>
@@ -506,7 +500,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TreeView1.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="TreeView2.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 436</value>
@@ -588,7 +582,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TreeView2.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="picTile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -624,7 +618,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picTile.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="picDownRight.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -655,7 +649,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picDownRight.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="picUpRight.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -689,7 +683,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picUpRight.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="picDownLeft.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -723,7 +717,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picDownLeft.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="picUpLeft.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -757,12 +751,12 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;picUpLeft.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="Label4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr0AAA69AUf7kK0AAADQSURBVGhD7c8xCsNQEAPRHCqHzdE+5CLubEhhthhSSTbI
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAADQSURBVGhD7c8xCsNQEAPRHCqHzdE+5CLubEhhthhSSTbI
         Kl61CHZea639SX7B27bZvT/fv2ij1mAnipxoo9ZgJ4qcaKPWYCeKnGij1mAnipxoo9ZgJ4qcaKPWYCeK
         nGij1mAnipxoo9ZgJ4qcaKPWYCeKnGij1mAnipxoo9ZgJ4qcaKPWYCeKnGijdgbTA1ejB9UafBd6zqHB
         d6DHXBp8JXrI7ZZgeuQqZzAdEzU4XYPTNThdg9M1OF2D0zU4XYPTNThdg9M1OF2D053Bz7H2A2AOWT1Q
@@ -791,12 +785,12 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="Label5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr0AAA69AUf7kK0AAADSSURBVGhD7c8xCsNADETRHMqHzdEWfJHtHAjYqPjljBe0
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAADSSURBVGhD7c8xCsNADETRHMqHzdEWfJHtHAjYqPjljBe0
         U7xKDOh/xhjXTv7Bc84tJLi7BHeX4O4S3F2Cu0twdwnuLsHdJbi7BHeX4O4S3N0TfHzP19Ajb1kSfKOH
         3JYG3+gxlwSvQs85JHglelBt32A6qlFkRRu1BDtRZEUbtQQ7UWRFG7UEO1FkRRu1BDtRZEUbtQQ7UWRF
         G7UEO1FkRRu1BDtRZEUbtQQ7UWRFG7UEO1FkRRu1BDtRZEUbtQQ7UWRFG7UEO1FkRRu1J3gf4/oB9RpZ
@@ -825,12 +819,12 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="Label6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr0AAA69AUf7kK0AAADMSURBVGhD7c8xCgJREARRD+VhPdqCF9lsBUGZoDCa/i6z
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAADMSURBVGhD7c8xCgJREARRD+VhPdqCF9lsBUGZoDCa/i6z
         Fbywoeu2bdtxJe/gfd/j7o/nT7TpZnASRVa06WZwEkVWtOlmcBJFVrTpZnASRVa06WZwEkVWtOlmcBJF
         VrTpZnASRVa06WZwEkVWtOlmcBJFVrTpZnASRVa06WZwEkVWtOlmcBJFVrTpdqrgFQxOoxMrGbwCHVnF
         4JXoUNpfgz/oWMopglcyeDqDpzN4OoOnM3g6g6czeDqDpzN4OoOnM3g6g6f7Bl/HdrwAAeNZPaLuC14A
@@ -859,12 +853,12 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="Label7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr0AAA69AUf7kK0AAADKSURBVGhD7c+xDcJQEARRiqJYSvsSjTgzEgG6YMLbb3Se
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAADKSURBVGhD7c+xDcJQEARRiqJYSvsSjTgzEgG6YMLbb3Se
         4IUr7TzWWuedfIOP47gFg6czeDqDpzN4OoOnM3g6g6czeDqDpzN4OoOnM3i6vwh+vt7bXBpMh9IuCaYj
         uxicRid2MjiJDuxmcBIdqGjTzeAkiqxo083gJIqsaNPN4CSKrGjTzeAkiqxo083gJIqsaNPN4CSKrGjT
         zeAkiqxo083gJIqsaNPN4CSKrGjTzeAkiqxo083gJIqsaNPN4CSKrGjT7Rd8H+v8AJbvWT34GitYAAAA
@@ -893,7 +887,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <metadata name="SaveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>455, 17</value>
@@ -901,6 +895,36 @@
   <metadata name="OpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>592, 17</value>
   </metadata>
+  <data name="Label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 17</value>
+  </data>
+  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="Label8.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>Label8</value>
+  </data>
+  <data name="&gt;&gt;Label8.Name" xml:space="preserve">
+    <value>Label8</value>
+  </data>
+  <data name="&gt;&gt;Label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label8.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label8.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

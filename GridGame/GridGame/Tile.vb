@@ -13,7 +13,7 @@ Public Class Tile
     Public Sub setup()
         tile = New Windows.Forms.Label
         tile.Visible = True
-        tile.Image = Image.FromFile("Blank.png")
+        tile.Image = Image.FromFile("Tile_0.png")
         tile.Left = x * 60
         tile.Left += (Form1.Width / 2) - 25
         tile.Top = y * 60
@@ -22,6 +22,10 @@ Public Class Tile
         tile.Height = 60
     End Sub
     Public Sub display()
-3:      tile.Image = Image.FromFile(img)
+        Try
+            tile.Image = Image.FromFile(img)
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

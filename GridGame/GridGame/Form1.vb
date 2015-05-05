@@ -28,9 +28,10 @@ Public Class Form1
             End If
         End If
         If e.KeyValue = Keys.D1 Then
-            restart(3)
+            num = InputBox("Enter level (levels: 1-11)").ToString
+            restart(num)
             restartLevel = True
-            num = 2
+            num = num + 1
         End If
         If e.KeyValue = Keys.D2 Then
             exportLevel()
@@ -47,7 +48,6 @@ Public Class Form1
         player = New Ball(7, 4, "Ball_0_" & colorStat & ".png")
         player.setup()
         Panel1.Controls.Add(player.ball)
-        Dim tileReader As String
 
 
         For i = 0 To 9
@@ -68,6 +68,10 @@ Public Class Form1
                 End If
             Next
         Next
+        num = InputBox("Enter level (levels: 1-11)").ToString
+        restart(num)
+        restartLevel = True
+        num = num + 1
     End Sub
 
 
@@ -78,7 +82,6 @@ Public Class Form1
                 mouseImg = TreeView1.SelectedNode.Name
             End If
         Catch ex As Exception
-
         End Try
 
         For i = 0 To 9
@@ -87,7 +90,6 @@ Public Class Form1
                     Try
                         grid(i, c).img = mouseImg
                     Catch ex As Exception
-
                     End Try
                 End If
             Next
@@ -99,6 +101,7 @@ Public Class Form1
 
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
+        Me.Label8.Text = player.key
         Dim count As Integer = 0
         For i = 0 To 10
             count += 1
@@ -225,6 +228,7 @@ Public Class Form1
                 grid(i, c).img = reader.ReadLine
             Next
         Next
+        player.key = ""
         restartLevel = False
     End Sub
 
@@ -288,7 +292,6 @@ Public Class Form1
                     Next
                     file.Close()
                 Catch ex As Exception
-
                 End Try
             End If
         End If
@@ -617,7 +620,9 @@ Public Class Form1
     End Sub
 
     Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
-        refresh()
+        num = InputBox("Enter level (levels: 1-11)").ToString
+        restart(num)
+        restartLevel = True
     End Sub
 
     Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
