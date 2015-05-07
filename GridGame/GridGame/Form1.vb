@@ -13,11 +13,11 @@ Public Class Form1
     Dim pic2 As Boolean = False
     Dim pic3 As Boolean = False
     Dim levelEditor As Boolean = False
-    Dim level(11) As String
+    Dim level(12) As String
     Dim num As Integer
     Dim colorStat As String = "Purple"
-    Dim playerPosX(11) As Integer
-    Dim playerPosY(11) As Integer
+    Dim playerPosX(12) As Integer
+    Dim playerPosY(12) As Integer
     Dim restartLevel As Boolean
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Space And levelEditor = False Then
@@ -30,8 +30,9 @@ Public Class Form1
         If e.KeyValue = Keys.D1 Then
             num = InputBox("Enter level (levels: 1-11)").ToString
             restart(num)
+            player.last = ""
+            player.lastTile = ""
             restartLevel = True
-            num = num + 1
         End If
         If e.KeyValue = Keys.D2 Then
             exportLevel()
@@ -70,8 +71,9 @@ Public Class Form1
         Next
         num = InputBox("Enter level (levels: 1-11)").ToString
         restart(num)
+        player.last = ""
+        player.lastTile = ""
         restartLevel = True
-        num = num + 1
     End Sub
 
 
@@ -103,7 +105,7 @@ Public Class Form1
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
         Me.Label8.Text = player.key
         Dim count As Integer = 0
-        For i = 0 To 10
+        For i = 0 To 11
             count += 1
             level(count) = TreeView2.Nodes(0).Nodes(i).Text
         Next
@@ -151,6 +153,8 @@ Public Class Form1
         playerPosY(10) = 3
         playerPosX(11) = 2
         playerPosY(11) = 2
+        playerPosX(12) = 2
+        playerPosY(12) = 2
 
         Me.TreeView1.Top = Me.Height - 175
         Me.TreeView2.Top = Me.Height - 275
@@ -229,7 +233,6 @@ Public Class Form1
             Next
         Next
         player.key = ""
-        restartLevel = False
     End Sub
 
 
@@ -254,7 +257,6 @@ Public Class Form1
                 grid(i, c).img = reader.ReadLine
             Next
         Next
-        restartLevel = False
     End Sub
 
     Public Sub refresh()
@@ -275,8 +277,6 @@ Public Class Form1
                 grid(i, c).img = reader.ReadLine
             Next
         Next
-        restartLevel = False
-
     End Sub
     Public Sub saveLevel()
         If TreeView2.Focused Then
@@ -372,7 +372,7 @@ Public Class Form1
                 ball.Top = y - 2
                 ball.Left = x
                 If Form1.colorStat = "Purple" Then
-                    If down = "arrowDown.png" And locY + 1 < 9 Then
+                    If down = "ArrowDown.png" And locY + 1 < 9 Then
                         lastTile = "Up"
                         last = "Down"
                         y += 69
@@ -442,7 +442,7 @@ Public Class Form1
                 End If
 
                 If Form1.colorStat = "Blue" Then
-                    If down = "arrowDown.png" And locY + 1 < 9 Then
+                    If down = "ArrowDown.png" And locY + 1 < 9 Then
                         lastTile = "Up"
                         last = "Down"
                         y += 69
@@ -611,18 +611,13 @@ Public Class Form1
     Private Sub lblEdit_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles lblEdit.MouseClick
         saveLevel()
     End Sub
+
     Private Sub lblEdit_MouseDown(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles lblEdit.MouseDown
         Me.lblEdit.Image = Image.FromFile("modernuiicons1.png")
     End Sub
 
     Private Sub lblEdit_MouseUp(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles lblEdit.MouseUp
         Me.lblEdit.Image = Image.FromFile("modernuiicons.png")
-    End Sub
-
-    Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
-        num = InputBox("Enter level (levels: 1-11)").ToString
-        restart(num)
-        restartLevel = True
     End Sub
 
     Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
