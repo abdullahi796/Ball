@@ -31,7 +31,7 @@ Tile_1.png
 Tile_0.png
 Tile_0.png
 Tile_0.png
-arrowDown.png
+ArrowDown.png
 Tile_0.png
 Tile_0.png
 UpRight_Purple.png

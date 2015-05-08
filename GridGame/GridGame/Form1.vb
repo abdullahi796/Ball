@@ -28,7 +28,7 @@ Public Class Form1
             End If
         End If
         If e.KeyValue = Keys.D1 Then
-            num = InputBox("Enter level (levels: 1-11)").ToString
+            num = InputBox("Enter level (levels: 1-10)").ToString
             restart(num)
             player.last = ""
             player.lastTile = ""
@@ -69,7 +69,7 @@ Public Class Form1
                 End If
             Next
         Next
-        num = InputBox("Enter level (levels: 1-11)").ToString
+        num = InputBox("Enter level (levels: 1-10)").ToString
         restart(num)
         player.last = ""
         player.lastTile = ""
@@ -88,7 +88,7 @@ Public Class Form1
 
         For i = 0 To 9
             For c = 0 To 9
-                If grid(i, c).tile.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
+                If grid(i, c).tile.Bounds.Contains(PointToClient(MousePosition)) And grid(i, c).img <> "Tile_0.png" And MouseButtons = Windows.Forms.MouseButtons.Left Then
                     Try
                         grid(i, c).img = mouseImg
                     Catch ex As Exception
