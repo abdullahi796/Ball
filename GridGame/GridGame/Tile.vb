@@ -15,9 +15,9 @@ Public Class Tile
         tile.Visible = True
         tile.Image = Image.FromFile("Tile_0.png")
         tile.Left = x * 60
-        tile.Left += (Form1.Width / 2) - 25
+        tile.Left += (Form1.Width / 2) - (Form1.Height / 8)
         tile.Top = y * 60
-        tile.Top += (Form1.Height / 4)
+        tile.Top += (Form1.Height / 2) - (Form1.Height / 4)
         tile.Width = 60
         tile.Height = 60
     End Sub
