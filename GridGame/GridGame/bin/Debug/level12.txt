@@ -14,7 +14,7 @@ Tile_0.png
 Tile_0.png
 Tile_0.png
 Tile_0.png
-Hole.png
+Tile_0.png
 Tile_0.png
 Tile_0.png
 Tile_1.png
@@ -34,7 +34,7 @@ Tile_0.png
 Tile_0.png
 Tile_0.png
 Tile_0.png
-Tile_0.png
+Check.jpg
 Tile_0.png
 Tile_0.png
 Tile_1.png
@@ -44,7 +44,7 @@ Tile_0.png
 Tile_0.png
 Tile_0.png
 Tile_0.png
-Check.jpg
+Tile_0.png
 Tile_0.png
 Tile_0.png
 Tile_1.png
