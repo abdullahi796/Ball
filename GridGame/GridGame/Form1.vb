@@ -1,6 +1,8 @@
 ﻿Imports System.IO
 Public Class Form1
     'Comment
+    Public screenWidth As Integer = Screen.PrimaryScreen.Bounds.Width
+    Public screenHeight As Integer = Screen.PrimaryScreen.Bounds.Height
     Public grid(9, 9) As Tile
     Dim hole(9, 9) As Tile
     Dim isRunning As Boolean = True
@@ -19,6 +21,7 @@ Public Class Form1
     Dim playerPosX(12) As Integer
     Dim playerPosY(12) As Integer
     Dim restartLevel As Boolean
+    Public sizeX As Integer
     Private Sub Form1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Space And levelEditor = False Then
             If player.key = "space" Then
@@ -42,6 +45,8 @@ Public Class Form1
         End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        sizeX = 2
+
         Panel1.Width = Me.Width
         Panel1.Height = Me.Height
         Panel1.Left = 0
@@ -364,7 +369,6 @@ Public Class Form1
             ball.Height = 48
             ball.BackColor = Color.Transparent
             ball.SizeMode = PictureBoxSizeMode.AutoSize
-
         End Sub
         Public Sub move()
             If key = "space" Or Form1.restartLevel = True Then
@@ -626,6 +630,8 @@ Public Class Form1
         Else
             levelEditor = False
         End If
+        sizeX += 2
+        restart(num)
     End Sub
 End Class
 

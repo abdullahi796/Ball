@@ -5,6 +5,7 @@ Public Class Tile
     Public img As String
     Public tile As Label
 
+
     Public Sub New(ByVal tempX As Integer, ByVal tempY As Integer, ByVal tempImg As String)
         x = tempX
         y = tempY
@@ -15,9 +16,9 @@ Public Class Tile
         tile.Visible = True
         tile.Image = Image.FromFile("Tile_0.png")
         tile.Left = x * 60
-        tile.Left += (Form1.Width / 2) - 25
+        tile.Left += (Form1.screenWidth / 4)
         tile.Top = y * 60
-        tile.Top += (Form1.Height / 4)
+        tile.Top += (Form1.screenHeight / 6)
         tile.Width = 60
         tile.Height = 60
     End Sub
