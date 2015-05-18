@@ -108,6 +108,7 @@ Public Class Form1
 
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
+        Debug.Print(player.last)
         Me.Label8.Text = player.key
         Dim count As Integer = 0
         For i = 0 To 11
@@ -386,6 +387,11 @@ Public Class Form1
                         last = "Up"
                         y -= 60
                         locY -= 1
+                    ElseIf left = "ArrowLeft.png" And locX - 1 > 0 Then
+                        lastTile = "Right"
+                        last = "Left"
+                        x -= 60
+                        locX -= 1
                     ElseIf down = "UpRight_Purple.png" And lastTile <> "Down" And locY + 1 < 9 Then
                         lastTile = "Up"
                         last = "Right"
