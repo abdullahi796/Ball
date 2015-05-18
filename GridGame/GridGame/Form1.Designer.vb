@@ -27,10 +27,8 @@ Partial Class Form1
         Me.tmrLoop = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tmrMove = New System.Windows.Forms.Timer(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.tmrUI = New System.Windows.Forms.Timer(Me.components)
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.lblEditor = New System.Windows.Forms.Label()
         Me.lblEdit = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -72,12 +70,6 @@ Partial Class Form1
         Me.tmrMove.Enabled = True
         Me.tmrMove.Interval = 75
         '
-        'Label1
-        '
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.Name = "Label1"
-        '
         'tmrUI
         '
         Me.tmrUI.Enabled = True
@@ -88,12 +80,6 @@ Partial Class Form1
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.Name = "Label3"
-        '
-        'Label2
-        '
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        resources.ApplyResources(Me.Label2, "Label2")
-        Me.Label2.Name = "Label2"
         '
         'lblEditor
         '
@@ -230,10 +216,9 @@ Partial Class Form1
         Me.Controls.Add(Me.lblEdit)
         Me.Controls.Add(Me.lblEditor)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.DoubleBuffered = True
+        Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.picTile, System.ComponentModel.ISupportInitialize).EndInit()
@@ -244,10 +229,8 @@ Partial Class Form1
     Friend WithEvents tmrLoop As System.Windows.Forms.Timer
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents tmrMove As System.Windows.Forms.Timer
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents tmrUI As System.Windows.Forms.Timer
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lblEditor As System.Windows.Forms.Label
     Friend WithEvents lblEdit As System.Windows.Forms.Label
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip

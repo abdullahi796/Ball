@@ -223,8 +223,8 @@ Public Class Form1
         Dim reader As New StreamReader(level(num) & ".txt")
         player.x = playerPosX(num) * 60
         player.y = playerPosY(num) * 60
-        player.x += (700 / 2)
-        player.y += (700 / 4)
+        player.x += 65
+        player.y += 35
         player.locX = playerPosX(num)
         player.locY = playerPosY(num)
         For i = 0 To 9
@@ -248,8 +248,8 @@ Public Class Form1
         Dim reader As New StreamReader(OpenFileDialog1.FileName)
         player.x = playerPosX(num) * 60
         player.y = playerPosY(num) * 60
-        player.x += (700 / 2)
-        player.y += (700 / 4)
+        'player.x += (700 / 2)
+        'player.y += (700 / 4)
         player.locX = playerPosX(num)
         player.locY = playerPosY(num)
         For i = 0 To 9
@@ -353,8 +353,8 @@ Public Class Form1
         Public Sub New(ByVal tempX As Integer, ByVal tempY As Integer, ByVal tempImg As String)
             x = tempX * 60
             y = tempY * 60
-            x += (700 / 2)
-            y += (700 / 4) + 5
+            'x += (700 / 2)
+            'y += (700 / 4) + 5
             img = tempImg
             locX = tempX
             locY = tempY
@@ -363,8 +363,8 @@ Public Class Form1
             ball = New Windows.Forms.PictureBox
             ball.Image = Image.FromFile(img)
             ball.Visible = True
-            ball.Left = x
-            ball.Top = y
+            'ball.Left = x
+            'ball.Top = y
             ball.Width = 48
             ball.Height = 48
             ball.BackColor = Color.Transparent
@@ -564,53 +564,6 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub tmrUI_Tick(sender As System.Object, e As System.EventArgs) Handles tmrUI.Tick
-        If Label1.Bounds.Contains(PointToClient(MousePosition)) Then
-            showUI("Show")
-        Else
-            showUI("Hide")
-        End If
-        'If Label2.Left < 15 Then
-        '    Label2.Visible = False
-        'End If
-        'If Label3.Left < 15 Then
-        '    Label3.Visible = False
-        'End If
-    End Sub
-
-    Public Sub showUI(ByVal value As String)
-        If value = "Hide" Or Label1.Bounds.Contains(PointToClient(MousePosition)) = False Then
-            If pic2 = True Then
-                If Label2.Left > 12 Then
-                    Label2.Left -= 20
-                Else
-                    pic2 = False
-                End If
-            ElseIf pic3 = True Then
-                If Label3.Left > 12 Then
-                    Label3.Left -= 20
-                Else
-                    pic3 = False
-                End If
-            End If
-        ElseIf value = "Show" Then
-            If pic2 = False Then
-                If Label2.Left < 50 Then
-                    Label2.Visible = True
-                    Label2.Left += 20
-                Else
-                    pic2 = True
-                End If
-            ElseIf pic3 = False Then
-                If Label3.Left < 50 Then
-                    Label3.Visible = True
-                    Label3.Left += 20
-                Else
-                    pic3 = True
-                End If
-            End If
-        End If
-    End Sub
 
     Private Sub lblEdit_MouseClick(sender As Object, e As System.Windows.Forms.MouseEventArgs) Handles lblEdit.MouseClick
         saveLevel()

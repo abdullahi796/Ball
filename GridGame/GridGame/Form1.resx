@@ -122,7 +122,7 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>512, 12</value>
+    <value>809, 12</value>
   </data>
   <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 100</value>
@@ -141,32 +141,11 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Panel1.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>16</value>
   </data>
   <metadata name="tmrMove.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>108, 15</value>
   </metadata>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 91</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 268</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
   <metadata name="tmrUI.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>216, 17</value>
   </metadata>
@@ -196,10 +175,10 @@
 </value>
   </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 270</value>
+    <value>943, 594</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 66</value>
+    <value>66, 45</value>
   </data>
   <data name="Label3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -215,66 +194,6 @@
   </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
     <value>15</value>
-  </data>
-  <data name="Label2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 148</value>
-  </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 80</value>
-  </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
-  </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>16</value>
   </data>
   <data name="lblEditor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -344,21 +263,6 @@
   <metadata name="ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>298, 17</value>
   </metadata>
-  <data name="ContextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 26</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuStrip1.Name" xml:space="preserve">
-    <value>ContextMenuStrip1</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 22</value>
-  </data>
-  <data name="ToolStripMenuItem1.Text" xml:space="preserve">
-    <value>level</value>
-  </data>
   <data name="Level1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 22</value>
   </data>
@@ -382,6 +286,21 @@
   </data>
   <data name="Level4ToolStripMenuItem.Text" xml:space="preserve">
     <value>level4</value>
+  </data>
+  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 22</value>
+  </data>
+  <data name="ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>level</value>
+  </data>
+  <data name="ContextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 26</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuStrip1.Name" xml:space="preserve">
+    <value>ContextMenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TreeView1.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 539</value>
@@ -601,7 +520,7 @@
     <value>NoControl</value>
   </data>
   <data name="picTile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>586, 201</value>
+    <value>883, 201</value>
   </data>
   <data name="picTile.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 60</value>
@@ -635,7 +554,7 @@
 </value>
   </data>
   <data name="picDownRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 137</value>
+    <value>814, 137</value>
   </data>
   <data name="picDownRight.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 57</value>
@@ -669,7 +588,7 @@
     <value>NoControl</value>
   </data>
   <data name="picUpRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 279</value>
+    <value>814, 279</value>
   </data>
   <data name="picUpRight.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 57</value>
@@ -703,7 +622,7 @@
     <value>NoControl</value>
   </data>
   <data name="picDownLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>650, 137</value>
+    <value>947, 137</value>
   </data>
   <data name="picDownLeft.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 57</value>
@@ -737,7 +656,7 @@
     <value>NoControl</value>
   </data>
   <data name="picUpLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>650, 279</value>
+    <value>947, 279</value>
   </data>
   <data name="picUpLeft.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 57</value>
@@ -771,7 +690,7 @@
     <value>NoControl</value>
   </data>
   <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>650, 525</value>
+    <value>947, 525</value>
   </data>
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 57</value>
@@ -805,7 +724,7 @@
     <value>NoControl</value>
   </data>
   <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>650, 383</value>
+    <value>947, 383</value>
   </data>
   <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 57</value>
@@ -839,7 +758,7 @@
     <value>NoControl</value>
   </data>
   <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 525</value>
+    <value>814, 525</value>
   </data>
   <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 57</value>
@@ -873,7 +792,7 @@
     <value>NoControl</value>
   </data>
   <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 383</value>
+    <value>814, 383</value>
   </data>
   <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 57</value>
@@ -936,7 +855,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>724, 648</value>
+    <value>1021, 648</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Form1</value>
