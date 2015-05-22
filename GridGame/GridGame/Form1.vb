@@ -37,12 +37,6 @@ Public Class Form1
             player.lastTile = ""
             restartLevel = True
         End If
-        If e.KeyValue = Keys.D2 Then
-            exportLevel()
-        End If
-        If e.KeyValue = Keys.D3 Then
-            loadLevel()
-        End If
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         sizeX = 2
@@ -74,11 +68,9 @@ Public Class Form1
                 End If
             Next
         Next
-        num = InputBox("Enter level (levels: 1-10)").ToString
-        restart(num)
-        player.last = ""
-        player.lastTile = ""
-        restartLevel = True
+
+        MessageBox.Show("The goal of the game is to get the ball to the green border tile using the direction tile. If the ball is blue then it can only be directed using blue tiles. If its purple then you have to use purple tiles.")
+
     End Sub
 
 
@@ -108,6 +100,16 @@ Public Class Form1
 
     'Main Loop
     Private Sub tmrLoop_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoop.Tick
+
+        If picGo.Bounds.Contains(PointToClient(MousePosition)) And MouseButtons = Windows.Forms.MouseButtons.Left Then
+            Panel2.Hide()
+            num = 1
+            restart(num)
+            player.last = ""
+            player.lastTile = ""
+            restartLevel = True
+        End If
+
         Debug.Print(player.last)
         Me.Label8.Text = player.key
         Dim count As Integer = 0
@@ -547,10 +549,19 @@ Public Class Form1
 
                 If current = "Check.jpg" Then
                     key = ""
-                    Form1.num = Form1.num + 1
-                    Form1.restart(Form1.num)
-                    Form1.restartLevel = True
-                    last = "Tile"
+                    If Form1.num = 10 Then
+                        MessageBox.Show("You beat all the levels")
+                    ElseIf Form1.num = 1 Then
+                        Form1.num = Form1.num + 1
+                        Form1.restart(Form1.num)
+                        Form1.restartLevel = True
+                        last = "Tile"
+                    Else
+                        Form1.num = Form1.num + 1
+                        Form1.restart(Form1.num)
+                        Form1.restartLevel = True
+                        last = "Tile"
+                    End If
                 End If
             End If
         End Sub
@@ -591,6 +602,10 @@ Public Class Form1
         End If
         sizeX += 2
         restart(num)
+    End Sub
+
+    Private Sub Panel2_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
+
     End Sub
 End Class
 

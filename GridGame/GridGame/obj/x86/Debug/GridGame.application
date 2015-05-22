@@ -8,14 +8,14 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="GridGame.exe.manifest" size="3680">
+    <dependentAssembly dependencyType="install" codebase="GridGame.exe.manifest" size="4314">
       <assemblyIdentity name="GridGame.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>06fLhCIx3eFPjVWCSMI6j6BVih4=</dsig:DigestValue>
+        <dsig:DigestValue>BqV4yzhNuz8xGCI5v1zKPMh7fX8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

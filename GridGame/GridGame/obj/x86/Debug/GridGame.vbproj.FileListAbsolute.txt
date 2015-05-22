@@ -50,3 +50,6 @@ C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.applic
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.exe
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.xml
 C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.pdb
+C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\bin\Debug\af\GridGame.resources.dll
+C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\GridGame.Form1.af.resources
+C:\Users\smahama688\Desktop\Ball\GridGame\GridGame\obj\x86\Debug\af\GridGame.resources.dll
